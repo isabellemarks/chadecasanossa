@@ -10,7 +10,7 @@
   <style>
     :root {
       --bg: #f8f4ef;
-      --surface: rgba(255,255,255,.82);
+      --surface: rgba(255,255,255,.84);
       --surface-solid: #fffdfa;
       --surface-soft: #f3ebe2;
       --text: #2f241d;
@@ -36,17 +36,26 @@
       color: var(--text);
     }
     a { color: inherit; }
+    img { display: block; max-width: 100%; }
     .container { width: min(1160px, calc(100% - 32px)); margin: 0 auto; }
-    .hero { padding: 32px 0 28px; }
-    .hero-card {
+    .hero { padding: 28px 0 30px; }
+    .hero-wrap {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+    .hero-card, .hero-photo {
       background: var(--surface);
-      backdrop-filter: blur(8px);
       border: 1px solid rgba(141,98,71,.14);
       border-radius: var(--radius-xl);
       box-shadow: var(--shadow);
-      padding: 28px;
       overflow: hidden;
+    }
+    .hero-card {
+      padding: 28px;
       position: relative;
+      backdrop-filter: blur(8px);
     }
     .hero-card::after {
       content: "";
@@ -58,12 +67,18 @@
       background: radial-gradient(circle, rgba(219,192,166,.55), transparent 66%);
       pointer-events: none;
     }
+    .hero-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 100%;
+    }
     .topbar {
       display: flex;
       justify-content: space-between;
       gap: 16px;
       align-items: flex-start;
-      margin-bottom: 28px;
+      margin-bottom: 24px;
       position: relative;
       z-index: 1;
     }
@@ -87,7 +102,7 @@
     .meta-pill {
       padding: 10px 14px;
       border-radius: 999px;
-      background: rgba(255,255,255,.7);
+      background: rgba(255,255,255,.72);
       border: 1px solid var(--border);
       font-size: 14px;
       color: var(--muted);
@@ -111,6 +126,12 @@
       position: relative;
       z-index: 1;
     }
+    .photo-caption {
+      font-size: 13px;
+      color: var(--muted);
+      margin-top: 10px;
+      text-align: right;
+    }
     .action-row {
       display: flex;
       flex-wrap: wrap;
@@ -130,6 +151,7 @@
       transition: .2s ease;
       border: 1px solid transparent;
       min-height: 48px;
+      cursor: pointer;
     }
     .btn-primary { background: var(--primary); color: #fff; }
     .btn-primary:hover { background: var(--primary-dark); }
@@ -185,9 +207,6 @@
       font-size: 15px;
       line-height: 1.6;
     }
-    .rsvp-box {
-      background: linear-gradient(180deg, #fffdfa 0%, #fbf5ee 100%);
-    }
     form {
       display: grid;
       gap: 14px;
@@ -224,14 +243,39 @@
       background: var(--surface-solid);
       border: 1px solid var(--border);
       border-radius: 24px;
-      padding: 20px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 355px;
+      box-shadow: 0 10px 26px rgba(44, 29, 18, 0.05);
+    }
+    .gift-image {
+      height: 165px;
+      background: linear-gradient(135deg, #efe2d4 0%, #dcc2a9 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary-dark);
+      font-size: 18px;
+      font-weight: 700;
+      text-align: center;
+      padding: 16px;
+      line-height: 1.35;
+    }
+    .gift-content {
+      padding: 18px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      min-height: 248px;
+      height: 100%;
     }
     .gift-card h3 { margin: 0; font-size: 19px; line-height: 1.35; }
-    .price { font-size: 28px; font-weight: 700; color: var(--primary-dark); }
+    .price {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--primary-dark);
+      display: none;
+    }
     .meta { display: flex; gap: 10px; flex-wrap: wrap; }
     .pill {
       background: var(--surface-soft);
@@ -251,6 +295,11 @@
       font-size: 14px;
       font-weight: 700;
     }
+    .small-note {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
     .footer { padding: 0 0 54px; }
     .footer-box {
       background: #2d211a;
@@ -263,15 +312,12 @@
       color: rgba(248,239,230,.8);
       line-height: 1.75;
     }
-    .small-note {
-      font-size: 13px;
-      color: var(--muted);
-      line-height: 1.7;
-    }
-    @media (max-width: 960px) {
-      .grid-2, .gift-grid { grid-template-columns: 1fr 1fr; }
+    @media (max-width: 980px) {
+      .hero-wrap, .grid-2, .gift-grid { grid-template-columns: 1fr 1fr; }
+      .hero-wrap { grid-template-columns: 1fr; }
       .topbar { flex-direction: column; }
       .event-meta { justify-content: flex-start; }
+      .hero-photo img { max-height: 520px; }
     }
     @media (max-width: 680px) {
       .grid-2, .gift-grid { grid-template-columns: 1fr; }
@@ -285,22 +331,27 @@
 <body>
   <header class="hero">
     <div class="container">
-      <div class="hero-card">
-        <div class="topbar">
-          <span class="eyebrow">Chá de Casa Nossa</span>
-          <div class="event-meta">
-            <span class="meta-pill">24.05.26 · Domingo</span>
-            <span class="meta-pill">16h</span>
-            <span class="meta-pill">Green Park · Salão de festas</span>
+      <div class="hero-wrap">
+        <div class="hero-card">
+          <div class="topbar">
+            <span class="eyebrow">Chá de Casa Nossa</span>
+            <div class="event-meta">
+              <span class="meta-pill">24.05.26 · Domingo</span>
+              <span class="meta-pill">16h</span>
+              <span class="meta-pill">Green Park · Salão de festas</span>
+            </div>
+          </div>
+          <h1>Isabelle &amp; Wirving</h1>
+          <p class="hero-subtitle">Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista em cotas para ajudar a montar a casa nova com carinho, humor e praticidade — e deixamos tudo fácil para confirmar presença, salvar na agenda e encontrar o local.</p>
+          <div class="action-row">
+            <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Venha%20celebrar%20o%20Ch%C3%A1%20de%20Casa%20Nossa%20de%20Isabelle%20e%20Wirving.%0A%0ALocal%3A%20Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas.%0AConfirme%20sua%20presen%C3%A7a%20no%20site.&location=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20(Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas)&ctz=America%2FSao_Paulo">Adicionar no Google Agenda</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20Condominio%20Green%20Park%20Salao%20de%20festas">Ver localização no Maps</a>
           </div>
         </div>
-        <h1>Isabelle &amp; Wirving</h1>
-        <p class="hero-subtitle">Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista em cotas para ajudar a montar a casa nova com carinho, humor e praticidade — e já deixamos tudo fácil para confirmar presença, salvar na agenda e chegar no local sem perrengue.</p>
-        <div class="action-row">
-          <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Venha%20celebrar%20o%20Ch%C3%A1%20de%20Casa%20Nossa%20de%20Isabelle%20e%20Wirving.%0A%0ALocal%3A%20Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas.%0AConfirme%20sua%20presen%C3%A7a%20no%20site.&location=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20(Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas)&ctz=America%2FSao_Paulo">Adicionar no Google Agenda</a>
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20Condominio%20Green%20Park%20Salao%20de%20festas">Ver localização no Maps</a>
-        </div>
+        <figure class="hero-photo">
+          <img src="./casal-hero.jpg" alt="Foto de Isabelle e Wirving" width="768" height="1024" loading="eager" />
+        </figure>
       </div>
     </div>
   </header>
@@ -320,10 +371,10 @@
         </article>
 
         <article class="card">
-          <h3>Como fica melhor o RSVP</h3>
-          <p>Como vocês têm muitos casais, o melhor é pedir a confirmação por <strong>casa/casal</strong>, não por pessoa. Plataformas de RSVP tratam isso como “household RSVP”, em que uma pessoa responde por todos da casa, o que combina melhor com a expectativa de casais e famílias [web:214].</p>
-          <p>Na prática, isso reduz respostas duplicadas e deixa a organização mais limpa. Também é uma forma comum de lidar com convites em grupo, especialmente quando casais costumam decidir juntos e não querem preencher duas vezes [web:214][web:228].</p>
-          <p class="small-note">Se você quiser, depois eu posso transformar este bloco em um formulário conectado a Google Forms ou Formspree para receber as confirmações de verdade.</p>
+          <h3>Confirmação por casal / família</h3>
+          <p>Como vocês têm muitos casais, o formato mais prático é um RSVP por casa ou casal, porque isso evita respostas duplicadas e acompanha melhor a forma como convites domésticos costumam ser respondidos [web:214].</p>
+          <p>O formulário abaixo já está configurado com o seu link do Formspree, então ele pode começar a receber respostas reais assim que você publicar esta versão no site [web:138][web:242].</p>
+          <p class="small-note">Se depois você quiser, eu também posso incluir uma mensagem de sucesso mais bonita após o envio e uma área privada para organizar as confirmações.</p>
         </article>
       </div>
     </section>
@@ -331,19 +382,23 @@
     <section class="section" id="rsvp">
       <div class="container">
         <h2 class="section-title">Confirmar presença</h2>
-        <p class="section-copy">Pensamos essa confirmação por casal ou família, porque isso costuma funcionar melhor quando há muitos convidados casados. Assim, uma pessoa pode responder por toda a casa de uma vez [web:214].</p>
+        <p class="section-copy">Uma resposta por casal ou família já resolve. Quem estiver respondendo pode informar quantas pessoas do convite irão, sem precisar preencher duas vezes para marido e mulher [web:214].</p>
         <div class="grid-2">
-          <article class="card rsvp-box">
-            <h3>RSVP do casal / família</h3>
-            <form>
+          <article class="card">
+            <h3>RSVP em funcionamento</h3>
+            <form action="https://formspree.io/f/mdaydgln" method="POST">
               <label>
                 Nome de quem está respondendo
-                <input type="text" placeholder="Ex.: Maria Silva" />
+                <input type="text" name="nome_responsavel" placeholder="Ex.: Maria Silva" required />
+              </label>
+              <label>
+                Telefone ou Instagram
+                <input type="text" name="contato" placeholder="Ex.: (84) 99999-9999" />
               </label>
               <label>
                 Vocês irão ao evento?
-                <select>
-                  <option>Selecione</option>
+                <select name="presenca" required>
+                  <option value="">Selecione</option>
                   <option>Sim, estaremos lá</option>
                   <option>Não poderemos ir</option>
                   <option>Ainda não temos certeza</option>
@@ -351,8 +406,8 @@
               </label>
               <label>
                 Quantas pessoas deste convite irão?
-                <select>
-                  <option>Selecione</option>
+                <select name="quantidade_pessoas" required>
+                  <option value="">Selecione</option>
                   <option>1 pessoa</option>
                   <option>2 pessoas</option>
                   <option>3 pessoas</option>
@@ -362,26 +417,28 @@
               </label>
               <label>
                 Nome do acompanhante ou dos familiares
-                <input type="text" placeholder="Ex.: João e Ana" />
+                <input type="text" name="acompanhantes" placeholder="Ex.: João e Ana" />
               </label>
               <label>
                 Recado para os anfitriões
-                <textarea placeholder="Se quiser, deixe uma mensagem aqui."></textarea>
+                <textarea name="mensagem" placeholder="Se quiser, deixe uma mensagem aqui."></textarea>
               </label>
-              <button class="btn btn-primary" type="button">Botão de envio será conectado no próximo passo</button>
+              <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa" />
+              <input type="hidden" name="_captcha" value="false" />
+              <button class="btn btn-primary" type="submit">Enviar confirmação</button>
             </form>
+            <p class="form-help">Se quiser, depois podemos configurar redirecionamento de sucesso e melhorar a mensagem final do envio [web:242][web:244].</p>
           </article>
 
           <article class="card">
-            <h3>O que esse bloco resolve</h3>
-            <p>Com esse formato, vocês evitam que marido e mulher respondam separadamente ou que uma casa envie duas confirmações. Um único RSVP por convite doméstico tende a ser a solução mais prática para casais [web:214].</p>
-            <p>Também fica mais fácil cruzar presença com os convidados esperados, porque você pode anotar “quem respondeu” e “quantas pessoas vêm”, sem precisar depender de respostas individuais de todo mundo [web:226].</p>
+            <h3>Sobre as imagens das cotas</h3>
+            <p>Sim, você pode me enviar suas próprias fotos aqui e eu posso encaixar nos cards. O jeito mais fácil de sinalizar é mandar assim:</p>
             <div class="event-list">
-              <div class="event-item">1 resposta por casal ou família</div>
-              <div class="event-item">Menos risco de duplicidade</div>
-              <div class="event-item">Mais fácil de organizar lista final</div>
-              <div class="event-item">Melhor experiência para convidados casados</div>
+              <div class="event-item"><strong>Arquivo:</strong> foto-cafe.jpg → <strong>Cota:</strong> Cota pra comprar café pro Wirving</div>
+              <div class="event-item"><strong>Arquivo:</strong> potes.jpg → <strong>Cota:</strong> Kit Tapaué</div>
+              <div class="event-item"><strong>Arquivo:</strong> ps5.jpg → <strong>Cota:</strong> Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</div>
             </div>
+            <p>Você também pode mandar mais de uma foto de vocês, sim. Aí eu te digo qual fica melhor no topo e quais podem entrar em outras partes do site [file:268].</p>
           </article>
         </div>
       </div>
@@ -390,26 +447,26 @@
     <section class="section" id="presentes">
       <div class="container">
         <h2 class="section-title">Nossas cotas</h2>
-        <p class="section-copy">Escolha a cota que mais combina com você. Cada item mostra o valor e quantas cotas estão disponíveis neste momento.</p>
+        <p class="section-copy">Embaralhei a ordem visual dos cards para esconder melhor a hierarquia de preços. Também deixei espaço para fotos individuais em cada cota, então depois podemos substituir cada placeholder pela imagem certa [cite:107].</p>
         <div class="gift-grid">
-          <article class="gift-card"><h3>Só um pixzinho</h3><div class="price">R$ 50</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Só pra não dizer que não dei nada</h3><div class="price">R$ 55</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="price">R$ 60</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda divertida</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Cota pra pagar o salgado (que eu vou comer)</h3><div class="price">R$ 70</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Comida é prioridade</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="price">R$ 80</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Casa verde</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="price">R$ 85</div><div class="meta"><span class="pill">3 cotas</span><span class="pill">Sobrevivência</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></article>
-          <article class="gift-card"><h3>Cota pra comprar café pro Wirving</h3><div class="price">R$ 100</div><div class="meta"><span class="pill">5 cotas</span><span class="pill">Energia do lar</span></div><div class="stock"><span>Disponível</span><span>5 restantes</span></div></article>
-          <article class="gift-card"><h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3><div class="price">R$ 120</div><div class="meta"><span class="pill">4 cotas</span><span class="pill">Casa iluminada</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div></article>
-          <article class="gift-card"><h3>Kit Tapaué (Potes herméticos)</h3><div class="price">R$ 130</div><div class="meta"><span class="pill">4 cotas</span><span class="pill">Organização</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div></article>
-          <article class="gift-card"><h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3><div class="price">R$ 140</div><div class="meta"><span class="pill">3 cotas</span><span class="pill">Casa perfumada</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></article>
-          <article class="gift-card"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="price">R$ 150</div><div class="meta"><span class="pill">3 cotas</span><span class="pill">Conforto</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></article>
-          <article class="gift-card"><h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3><div class="price">R$ 160</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sonho gamer</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Taxa pra perguntar quando teremos filhos</h3><div class="price">R$ 170</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Assunto delicado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Cueca Sexy para o Wirving</h3><div class="price">R$ 180</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sem julgamentos</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>Um mês de Filosofia do Wirving</h3><div class="price">R$ 190</div><div class="meta"><span class="pill">1 cota</span><span class="pill">Paciência premium</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div></article>
-          <article class="gift-card"><h3>Um mês de MBA da Isa</h3><div class="price">R$ 200</div><div class="meta"><span class="pill">1 cota</span><span class="pill">Investimento intelectual</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div></article>
-          <article class="gift-card"><h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3><div class="price">R$ 200</div><div class="meta"><span class="pill">2 cotas</span><span class="pill">Projeto ousado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></article>
-          <article class="gift-card"><h3>EU SOU RICAAAAAA!</h3><div class="price">R$ 300</div><div class="meta"><span class="pill">3 cotas</span><span class="pill">Cota luxo</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: café charmoso</div><div class="gift-content"><h3>Cota pra comprar café pro Wirving</h3><div class="meta"><span class="pill">5 cotas</span><span class="pill">Energia do lar</span></div><div class="stock"><span>Disponível</span><span>5 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: manta aconchegante</div><div class="gift-content"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Conforto</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: taça luxo cômica</div><div class="gift-content"><h3>EU SOU RICAAAAAA!</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Cota luxo</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: salgadinhos de festa</div><div class="gift-content"><h3>Cota pra pagar o salgado (que eu vou comer)</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Comida é prioridade</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: closet bonito</div><div class="gift-content"><h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Projeto ousado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: potes herméticos</div><div class="gift-content"><h3>Kit Tapaué (Potes herméticos)</h3><div class="meta"><span class="pill">4 cotas</span><span class="pill">Organização</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: ícone Pix divertido</div><div class="gift-content"><h3>Só um pixzinho</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: aroma / difusor</div><div class="gift-content"><h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Casa perfumada</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: livros e estudos</div><div class="gift-content"><h3>Um mês de MBA da Isa</h3><div class="meta"><span class="pill">1 cota</span><span class="pill">Investimento intelectual</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: setup gamer</div><div class="gift-content"><h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sonho gamer</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: plantas em vaso</div><div class="gift-content"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Casa verde</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: interrogação divertida</div><div class="gift-content"><h3>Taxa pra perguntar quando teremos filhos</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Assunto delicado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: lâmpada moderna</div><div class="gift-content"><h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3><div class="meta"><span class="pill">4 cotas</span><span class="pill">Casa iluminada</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: cueca engraçadinha</div><div class="gift-content"><h3>Cueca Sexy para o Wirving</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sem julgamentos</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: remédio/laticínios cômicos</div><div class="gift-content"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Sobrevivência</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: envelope de presente</div><div class="gift-content"><h3>Só pra não dizer que não dei nada</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: notebook e filosofia</div><div class="gift-content"><h3>Um mês de Filosofia do Wirving</h3><div class="meta"><span class="pill">1 cota</span><span class="pill">Paciência premium</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: bilhetinho engraçado</div><div class="gift-content"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda divertida</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div></div></article>
         </div>
       </div>
     </section>
@@ -418,7 +475,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-box">
-        <p>Próximo passo sugerido: eu posso te entregar uma terceira versão já conectada a um formulário real de confirmação de presença e também com os botões de Pix e cartão configurados de verdade. O link de Google Agenda já está montado com data, horário e local do seu evento [web:220][web:221][web:223], e o botão do Maps usa o formato de busca recomendado do Google Maps [web:213][web:224].</p>
+        <p>Agora você já tem: foto de vocês no topo, cards embaralhados para esconder a hierarquia dos preços, RSVP funcional com Formspree e espaço para trocar cada placeholder pela foto certa. No próximo passo, você pode me mandar as imagens das cotas com o nome do item correspondente, e eu monto a versão final com tudo mais pessoal [file:268][web:138][web:242].</p>
       </div>
     </div>
   </footer>
