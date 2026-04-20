@@ -38,7 +38,7 @@
     .hero { padding: 28px 0 30px; }
     .hero-wrap { display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:stretch; }
     .hero-card, .hero-photo, .card, .gift-card, .secondary-photo { background:var(--surface-solid); border:1px solid rgba(141,98,71,.14); border-radius:var(--radius-xl); box-shadow:var(--shadow); overflow:hidden; }
-    .hero-card { padding:28px; background:var(--surface); position:relative; }
+    .hero-card { padding:28px; background:var(--surface); }
     .hero-photo img, .secondary-photo img { width:100%; height:100%; object-fit:cover; }
     .topbar { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-bottom:24px; }
     .eyebrow { display:inline-flex; padding:8px 14px; border-radius:999px; background:#f2e5d8; color:var(--primary-dark); font-size:13px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
@@ -46,7 +46,7 @@
     .meta-pill { padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.72); border:1px solid var(--border); font-size:14px; color:var(--muted); font-weight:600; }
     h1,h2 { font-family:'Instrument Serif', serif; letter-spacing:-.03em; }
     h1 { margin:0; font-size:clamp(46px, 9vw, 94px); line-height:.92; }
-    .hero-subtitle, .section-copy, .card p, .small-note { color:var(--muted); line-height:1.75; }
+    .hero-subtitle, .section-copy, .card p { color:var(--muted); line-height:1.75; }
     .hero-subtitle { max-width:760px; margin:18px 0 24px; font-size:18px; }
     .action-row { display:flex; flex-wrap:wrap; gap:12px; }
     .btn { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; padding:14px 18px; border-radius:999px; font-weight:700; font-size:15px; transition:.2s ease; border:1px solid transparent; min-height:48px; cursor:pointer; }
@@ -80,6 +80,7 @@
     .footer { padding:0 0 54px; }
     .footer-box { background:#2d211a; color:#f8efe6; border-radius:28px; padding:28px; }
     .footer-box p { margin:0; color:rgba(248,239,230,.82); line-height:1.75; }
+    code { background:rgba(255,255,255,.15); padding:2px 8px; border-radius:8px; }
     @media (max-width:980px) {
       .hero-wrap, .grid-2, .gift-grid, .split-visual { grid-template-columns:1fr 1fr; }
       .hero-wrap, .split-visual { grid-template-columns:1fr; }
@@ -114,7 +115,7 @@
           <div class="action-row">
             <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
             <a class="btn btn-secondary" href="#presentes">Escolher uma cota</a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Venha%20celebrar%20o%20Ch%C3%A1%20de%20Casa%20Nossa%20de%20Isabelle%20e%20Wirving.%0A%0ALocal%3A%20Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas.%0AConfirme%20sua%20presen%C3%A7a%20no%20site.&location=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20(Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas)&ctz=America%2FSao_Paulo">Adicionar no Google Agenda</a>
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Venha%20celebrar%20o%20Ch%C3%A1%20de%20Casa%20Nossa%20de%20Isabelle%20e%20Wirving.%0A%0ALocal%3A%20Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas.&location=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20(Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas)&ctz=America%2FSao_Paulo">Adicionar no Google Agenda</a>
             <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20Condominio%20Green%20Park%20Salao%20de%20festas">Ver localização no Maps</a>
           </div>
         </div>
@@ -148,10 +149,9 @@
       <div class="container grid-2">
         <article class="card">
           <h2 class="section-title">Confirmar presença</h2>
-          <p class="section-copy">Como vocês têm muitos casais, o formato por casal ou família evita respostas duplicadas e simplifica a organização [web:297].</p>
+          <p class="section-copy">Como vocês têm muitos casais, o formato por casal ou família evita respostas duplicadas e simplifica a organização [web:323].</p>
           <form action="https://formspree.io/f/mdaydgln" method="POST">
             <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa" />
-            <input type="hidden" name="_next" value="https://chadecasanossa.pages.dev/obrigado.html" />
             <label>Nome de quem está respondendo<input type="text" name="nome_responsavel" required></label>
             <label>Telefone ou Instagram<input type="text" name="contato"></label>
             <label>Vocês irão ao evento?
@@ -179,14 +179,13 @@
         </article>
 
         <article class="card">
-          <h2 class="section-title">Como escolher uma cota</h2>
-          <p class="section-copy">O jeito mais simples sem sistema de pagamento integrado é fazer a pessoa clicar em “Quero esta cota”, e o site já preencher automaticamente o formulário com o nome da cota escolhida. Radio buttons e selects são padrões adequados para escolher uma opção em formulários HTML [web:297][web:299].</p>
-          <p>Depois, você recebe no Formspree qual cota a pessoa quer. A baixa continua sendo manual: quando a pessoa pagar, você edita o número restante daquela cota no HTML e publica de novo. Para um site simples e estático, essa é a abordagem mais prática [web:298][web:300].</p>
+          <h2 class="section-title">Como enviar as fotos</h2>
+          <p class="section-copy">As duas fotos do casal precisam ser salvas no mesmo lugar do <code>index.html</code>, com estes nomes exatos: <code>casal-hero.jpg</code> e <code>casal-secundaria.jpg</code>. Em caminhos relativos com <code>./</code>, a imagem precisa estar na mesma pasta do HTML [web:319][web:324].</p>
           <div class="event-list">
-            <div class="event-item">1. A pessoa escolhe a cota no card</div>
-            <div class="event-item">2. O site preenche o campo da cota no formulário</div>
-            <div class="event-item">3. Você confere o pagamento</div>
-            <div class="event-item">4. Você reduz manualmente a quantidade restante</div>
+            <div class="event-item">1. No GitHub, clique em <strong>Add file</strong> → <strong>Upload files</strong></div>
+            <div class="event-item">2. Envie a foto principal renomeada para <strong>casal-hero.jpg</strong></div>
+            <div class="event-item">3. Envie a segunda foto renomeada para <strong>casal-secundaria.jpg</strong></div>
+            <div class="event-item">4. Deixe os dois arquivos na mesma tela onde está o <strong>index.html</strong></div>
           </div>
         </article>
       </div>
@@ -195,26 +194,26 @@
     <section class="section" id="presentes">
       <div class="container">
         <h2 class="section-title">Escolha uma cota</h2>
-        <p class="section-copy">Embaralhei os cards para esconder a hierarquia de valores e deixei um botão em cada item para preencher automaticamente a cota escolhida no formulário.</p>
+        <p class="section-copy">Agora, ao clicar em “Quero esta cota”, o nome do item é colocado automaticamente no formulário lá embaixo. Isso depende do JavaScript do próprio HTML e foi deixado pronto nesta versão [web:320][web:323].</p>
         <div class="gift-grid">
-          <article class="gift-card"><div class="gift-image">Sugestão: café charmoso</div><div class="gift-content"><h3>Cota pra comprar café pro Wirving</h3><div class="meta"><span class="pill">5 cotas</span><span class="pill">Energia do lar</span></div><div class="stock"><span>Disponível</span><span>5 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: manta aconchegante</div><div class="gift-content"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Conforto</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: taça luxo cômica</div><div class="gift-content"><h3>EU SOU RICAAAAAA!</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Cota luxo</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="EU SOU RICAAAAAA!">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: salgadinhos de festa</div><div class="gift-content"><h3>Cota pra pagar o salgado (que eu vou comer)</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Comida é prioridade</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: closet bonito</div><div class="gift-content"><h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Projeto ousado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: potes herméticos</div><div class="gift-content"><h3>Kit Tapaué (Potes herméticos)</h3><div class="meta"><span class="pill">4 cotas</span><span class="pill">Organização</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Kit Tapaué (Potes herméticos)">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: ícone Pix divertido</div><div class="gift-content"><h3>Só um pixzinho</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Só um pixzinho">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: aroma / difusor</div><div class="gift-content"><h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Casa perfumada</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: livros e estudos</div><div class="gift-content"><h3>Um mês de MBA da Isa</h3><div class="meta"><span class="pill">1 cota</span><span class="pill">Investimento intelectual</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" data-cota="Um mês de MBA da Isa">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: setup gamer</div><div class="gift-content"><h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sonho gamer</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: plantas em vaso</div><div class="gift-content"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Casa verde</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: interrogação divertida</div><div class="gift-content"><h3>Taxa pra perguntar quando teremos filhos</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Assunto delicado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: lâmpada moderna</div><div class="gift-content"><h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3><div class="meta"><span class="pill">4 cotas</span><span class="pill">Casa iluminada</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: cueca engraçadinha</div><div class="gift-content"><h3>Cueca Sexy para o Wirving</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sem julgamentos</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: remédio/laticínios cômicos</div><div class="gift-content"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Sobrevivência</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: envelope de presente</div><div class="gift-content"><h3>Só pra não dizer que não dei nada</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Só pra não dizer que não dei nada">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: notebook e filosofia</div><div class="gift-content"><h3>Um mês de Filosofia do Wirving</h3><div class="meta"><span class="pill">1 cota</span><span class="pill">Paciência premium</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button></div></article>
-          <article class="gift-card"><div class="gift-image">Sugestão: bilhetinho engraçado</div><div class="gift-content"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda divertida</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: café charmoso</div><div class="gift-content"><h3>Cota pra comprar café pro Wirving</h3><div class="meta"><span class="pill">5 cotas</span><span class="pill">Energia do lar</span></div><div class="stock"><span>Disponível</span><span>5 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: manta aconchegante</div><div class="gift-content"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Conforto</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: taça luxo cômica</div><div class="gift-content"><h3>EU SOU RICAAAAAA!</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Cota luxo</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="EU SOU RICAAAAAA!">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: salgadinhos de festa</div><div class="gift-content"><h3>Cota pra pagar o salgado (que eu vou comer)</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Comida é prioridade</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: closet bonito</div><div class="gift-content"><h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Projeto ousado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: potes herméticos</div><div class="gift-content"><h3>Kit Tapaué (Potes herméticos)</h3><div class="meta"><span class="pill">4 cotas</span><span class="pill">Organização</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Kit Tapaué (Potes herméticos)">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: ícone Pix divertido</div><div class="gift-content"><h3>Só um pixzinho</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Só um pixzinho">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: aroma / difusor</div><div class="gift-content"><h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Casa perfumada</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: livros e estudos</div><div class="gift-content"><h3>Um mês de MBA da Isa</h3><div class="meta"><span class="pill">1 cota</span><span class="pill">Investimento intelectual</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Um mês de MBA da Isa">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: setup gamer</div><div class="gift-content"><h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sonho gamer</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: plantas em vaso</div><div class="gift-content"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Casa verde</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: interrogação divertida</div><div class="gift-content"><h3>Taxa pra perguntar quando teremos filhos</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Assunto delicado</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: lâmpada moderna</div><div class="gift-content"><h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3><div class="meta"><span class="pill">4 cotas</span><span class="pill">Casa iluminada</span></div><div class="stock"><span>Disponível</span><span>4 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: cueca engraçadinha</div><div class="gift-content"><h3>Cueca Sexy para o Wirving</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Sem julgamentos</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: remédio/laticínios cômicos</div><div class="gift-content"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="meta"><span class="pill">3 cotas</span><span class="pill">Sobrevivência</span></div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: envelope de presente</div><div class="gift-content"><h3>Só pra não dizer que não dei nada</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda simbólica</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Só pra não dizer que não dei nada">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: notebook e filosofia</div><div class="gift-content"><h3>Um mês de Filosofia do Wirving</h3><div class="meta"><span class="pill">1 cota</span><span class="pill">Paciência premium</span></div><div class="stock"><span>Disponível</span><span>1 restante</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button></div></article>
+          <article class="gift-card"><div class="gift-image">Sugestão: bilhetinho engraçado</div><div class="gift-content"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="meta"><span class="pill">2 cotas</span><span class="pill">Ajuda divertida</span></div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button></div></article>
         </div>
       </div>
     </section>
@@ -223,10 +222,9 @@
       <div class="container grid-2">
         <article class="card">
           <h2 class="section-title">Reservar uma cota</h2>
-          <p class="section-copy">Depois de clicar em “Quero esta cota”, o nome do item aparece aqui automaticamente. A pessoa envia a intenção, você confere o pagamento e depois dá baixa manualmente.</p>
+          <p class="section-copy">Clique em “Quero esta cota” em qualquer card. O nome do item vai aparecer automaticamente aqui embaixo [web:320][web:323].</p>
           <form action="https://formspree.io/f/mdaydgln" method="POST">
             <input type="hidden" name="_subject" value="Nova escolha de cota - Chá de Casa Nossa" />
-            <input type="hidden" name="_next" value="https://chadecasanossa.pages.dev/obrigado.html" />
             <label>Nome<input type="text" name="nome" required></label>
             <label>Telefone ou Instagram<input type="text" name="contato" required></label>
             <label>Cota escolhida<input type="text" id="cota-escolhida" name="cota_escolhida" placeholder="Clique em 'Quero esta cota' em um dos cards acima" required></label>
@@ -242,13 +240,12 @@
         </article>
 
         <article class="card">
-          <h2 class="section-title">Como você dá baixa</h2>
-          <p>Você vai controlar isso manualmente no começo. Quando alguém pagar uma cota, basta editar o card correspondente no `index.html` e diminuir o número restante, depois salvar no GitHub para o site atualizar [web:298][web:300].</p>
+          <h2 class="section-title">Como dar baixa</h2>
+          <p class="section-copy">Você vai dar baixa manualmente: quando alguém pagar, edita o número restante daquela cota no <code>index.html</code> e publica de novo. Para site estático simples, esse é o caminho mais fácil [web:298][web:300].</p>
           <div class="event-list">
-            <div class="event-item"><strong>Exemplo:</strong> “5 restantes” vira “4 restantes”</div>
-            <div class="event-item"><strong>Se zerar:</strong> você pode trocar para “Esgotado”</div>
-            <div class="event-item"><strong>Vantagem:</strong> simples, sem sistema complexo</div>
-            <div class="event-item"><strong>Depois:</strong> eu posso automatizar melhor se você quiser</div>
+            <div class="event-item">Exemplo: <strong>5 restantes</strong> vira <strong>4 restantes</strong></div>
+            <div class="event-item">Se acabar, você pode trocar por <strong>Esgotado</strong></div>
+            <div class="event-item">Depois eu posso te ajudar a deixar “últimas cotas” e “quase acabando”</div>
           </div>
         </article>
       </div>
@@ -258,7 +255,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-box">
-        <p>Se você quiser, no próximo passo eu posso te entregar uma versão ainda melhor com status visual “quase acabando”, “última cota” e “esgotado”, para facilitar sua baixa manual e deixar o site mais persuasivo.</p>
+        <p>Resumo rápido: envie no GitHub o <code>index.html</code>, a foto principal com nome <code>casal-hero.jpg</code> e a segunda foto com nome <code>casal-secundaria.jpg</code>, tudo na mesma pasta. Depois disso, as fotos devem aparecer e a escolha da cota deve funcionar [web:319][web:324].</p>
       </div>
     </div>
   </footer>
@@ -266,11 +263,14 @@
   <script>
     const buttons = document.querySelectorAll('.choose-btn');
     const input = document.getElementById('cota-escolhida');
+    const targetSection = document.getElementById('presente-form');
+
     buttons.forEach((button) => {
       button.addEventListener('click', () => {
-        input.value = button.dataset.cota;
-        document.getElementById('presente-form').scrollIntoView({ behavior: 'smooth' });
-        input.focus();
+        const chosen = button.getAttribute('data-cota');
+        input.value = chosen;
+        targetSection.scrollIntoView({ behavior: 'smooth' });
+        setTimeout(() => input.focus(), 350);
       });
     });
   </script>
