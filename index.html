@@ -3,135 +3,379 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chá de Casa Nossa</title>
+  <title>Chá de casa nossa</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --bg: #f8f4ef;
-      --surface: rgba(255,255,255,.84);
-      --surface-solid: #fffdfa;
-      --surface-soft: #f3ebe2;
-      --text: #2f241d;
-      --muted: #776b63;
-      --border: #e6d7ca;
-      --primary: #8d6247;
-      --primary-dark: #714831;
-      --success: #406b47;
-      --radius-xl: 32px;
-      --radius-lg: 24px;
-      --shadow: 0 18px 50px rgba(63, 39, 24, 0.08);
+    :root{
+      --bg:#f6f1eb;
+      --surface:#fffdf9;
+      --surface-2:#f3ebe2;
+      --text:#2b2019;
+      --muted:#72665d;
+      --line:#e7d9cc;
+      --primary:#8a5b40;
+      --primary-dark:#6f442f;
+      --shadow:0 16px 50px rgba(72, 42, 22, .08);
+      --radius:28px;
     }
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font-family: 'Work Sans', sans-serif;
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:'Work Sans',sans-serif;
+      color:var(--text);
       background:
-        radial-gradient(circle at top left, rgba(219,192,166,.35), transparent 30%),
-        linear-gradient(180deg, #fbf8f4 0%, #f6eee6 100%);
-      color: var(--text);
+        radial-gradient(circle at top left, rgba(211,181,157,.34), transparent 28%),
+        linear-gradient(180deg,#faf7f3 0%, #f4ece3 100%);
     }
-    img { display:block; max-width:100%; }
-    .container { width:min(1160px, calc(100% - 32px)); margin:0 auto; }
-    .hero { padding: 28px 0 30px; }
-    .hero-wrap { display:grid; grid-template-columns:1.15fr .85fr; gap:22px; align-items:stretch; }
-    .hero-card, .hero-photo, .card, .gift-card, .secondary-photo {
-      background:var(--surface-solid);
-      border:1px solid rgba(141,98,71,.14);
-      border-radius:var(--radius-xl);
+    img{max-width:100%;display:block}
+    a{color:inherit}
+    .container{width:min(1160px,calc(100% - 32px));margin:0 auto}
+    .section{padding:22px 0 56px}
+    .card{
+      background:rgba(255,253,249,.9);
+      border:1px solid rgba(231,217,204,.95);
+      border-radius:var(--radius);
       box-shadow:var(--shadow);
       overflow:hidden;
     }
-    .hero-card { padding:28px; background:var(--surface); }
-    .hero-photo img, .secondary-photo img { width:100%; height:100%; object-fit:cover; }
-    .topbar { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; margin-bottom:24px; }
-    .eyebrow { display:inline-flex; padding:8px 14px; border-radius:999px; background:#f2e5d8; color:var(--primary-dark); font-size:13px; font-weight:700; letter-spacing:.04em; text-transform:uppercase; }
-    .event-meta { display:flex; flex-wrap:wrap; gap:10px; justify-content:flex-end; }
-    .meta-pill { padding:10px 14px; border-radius:999px; background:rgba(255,255,255,.72); border:1px solid var(--border); font-size:14px; color:var(--muted); font-weight:600; }
-    h1,h2 { font-family:'Instrument Serif', serif; letter-spacing:-.03em; }
-    h1 { margin:0; font-size:clamp(46px, 9vw, 94px); line-height:.92; }
-    .hero-subtitle, .section-copy, .card p { color:var(--muted); line-height:1.75; }
-    .hero-subtitle { max-width:760px; margin:18px 0 24px; font-size:18px; }
-    .action-row { display:flex; flex-wrap:wrap; gap:12px; }
-    .btn { display:inline-flex; align-items:center; justify-content:center; text-decoration:none; padding:14px 18px; border-radius:999px; font-weight:700; font-size:15px; transition:.2s ease; border:1px solid transparent; min-height:48px; cursor:pointer; }
-    .btn-primary { background:var(--primary); color:#fff; }
-    .btn-primary:hover { background:var(--primary-dark); }
-    .btn-secondary { border-color:var(--border); background:rgba(255,255,255,.72); color:var(--text); }
-    .btn-secondary:hover { background:#fff; }
-    .section { padding:18px 0 56px; }
-    .section-title { margin:0 0 8px; font-size:clamp(31px, 4vw, 48px); line-height:1; }
-    .section-copy { margin:0 0 28px; max-width:760px; }
-    .grid-2 { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:18px; }
-    .card { padding:22px; border-radius:24px; }
-    .event-list { display:grid; gap:12px; margin-top:18px; }
-    .event-item { padding:14px 16px; border-radius:16px; background:var(--surface-soft); font-size:15px; line-height:1.6; }
-    form { display:grid; gap:14px; margin-top:14px; }
-    label { display:grid; gap:8px; font-weight:600; font-size:14px; }
-    input, select, textarea { width:100%; border:1px solid var(--border); border-radius:14px; padding:14px; font:inherit; background:#fff; color:var(--text); }
-    textarea { min-height:110px; resize:vertical; }
-    .gift-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:18px; }
-    .gift-card { border-radius:24px; min-height:350px; cursor:pointer; }
-    .gift-image-img { width:100%; height:165px; object-fit:cover; background:#eee; }
-    .gift-content { padding:18px; display:flex; flex-direction:column; gap:12px; height:100%; }
-    .gift-card h3 { margin:0; font-size:19px; line-height:1.35; }
-    .price { font-size:16px; font-weight:700; color:var(--primary-dark); }
-    .stock { margin-top:auto; padding-top:12px; border-top:1px dashed var(--border); display:flex; justify-content:space-between; gap:10px; color:var(--success); font-size:14px; font-weight:700; }
-    .choose-btn { margin-top:10px; width:100%; }
-    .split-visual { display:grid; grid-template-columns:.9fr 1.1fr; gap:18px; align-items:stretch; }
-    .secondary-photo { min-height:420px; }
-    .modal-backdrop { position:fixed; inset:0; background:rgba(0,0,0,.45); display:none; align-items:center; justify-content:center; padding:20px; z-index:999; }
-    .modal { width:min(760px,100%); background:#fffdfa; border-radius:28px; border:1px solid #e6d7ca; box-shadow:0 30px 80px rgba(0,0,0,.25); overflow:hidden; }
-    .modal-head { padding:22px 22px 0; display:flex; align-items:center; gap:12px; }
-    .modal-body { padding:22px; display:grid; gap:16px; }
-    .modal-actions { display:flex; gap:10px; flex-wrap:wrap; }
-    .close-x { margin-left:auto; background:transparent; border:none; font-size:28px; cursor:pointer; color:#776b63; }
-    .pay-box { display:none; padding:16px; border:1px solid #e6d7ca; border-radius:18px; background:#f9f4ee; }
-    .footer { padding:0 0 54px; }
-    .footer-box { background:#2d211a; color:#f8efe6; border-radius:28px; padding:28px; }
-    .footer-box p { margin:0; color:rgba(248,239,230,.82); line-height:1.75; }
-    code { background:rgba(255,255,255,.15); padding:2px 8px; border-radius:8px; }
-    @media (max-width:980px) {
-      .hero-wrap, .grid-2, .gift-grid, .split-visual { grid-template-columns:1fr 1fr; }
-      .hero-wrap, .split-visual { grid-template-columns:1fr; }
-      .topbar { flex-direction:column; }
-      .event-meta { justify-content:flex-start; }
-      .hero-photo img, .secondary-photo img { max-height:520px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      min-height:48px;
+      padding:13px 18px;
+      border-radius:999px;
+      font-size:15px;
+      font-weight:700;
+      text-decoration:none;
+      border:1px solid transparent;
+      cursor:pointer;
+      transition:.2s ease;
+      white-space:nowrap;
     }
-    @media (max-width:680px) {
-      .grid-2, .gift-grid { grid-template-columns:1fr; }
-      .hero-card { padding:22px; }
-      .hero-subtitle { font-size:16px; }
-      .action-row { flex-direction:column; }
-      .btn { width:100%; }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-dark)}
+    .btn-secondary{background:rgba(255,255,255,.7);border-color:var(--line);color:var(--text)}
+    .btn-secondary:hover{background:#fff}
+    .hero{padding:26px 0 18px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns:1.15fr .85fr;
+      gap:20px;
+      align-items:stretch;
+    }
+    .hero-text{padding:28px}
+    .eyebrow{
+      display:inline-flex;
+      padding:8px 14px;
+      border-radius:999px;
+      background:#f1e3d6;
+      color:var(--primary-dark);
+      font-size:13px;
+      font-weight:800;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+    .meta-row{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .meta-pill{
+      padding:10px 14px;
+      border-radius:999px;
+      background:rgba(255,255,255,.78);
+      border:1px solid var(--line);
+      color:var(--muted);
+      font-size:14px;
+      font-weight:700;
+    }
+    .topbar{
+      display:flex;
+      align-items:flex-start;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:26px;
+    }
+    h1,h2{
+      font-family:'Instrument Serif',serif;
+      margin:0;
+      line-height:.92;
+      letter-spacing:-.04em;
+    }
+    h1{
+      font-size:clamp(56px, 9vw, 108px);
+      margin-bottom:16px;
+    }
+    .hero-copy{
+      max-width:760px;
+      color:var(--muted);
+      line-height:1.8;
+      font-size:18px;
+      margin:0 0 22px;
+    }
+    .action-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:12px;
+    }
+    .hero-photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      min-height:100%;
+    }
+    .split{
+      display:grid;
+      grid-template-columns:.9fr 1.1fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .photo-box{min-height:430px}
+    .photo-box img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+    .content-box{padding:24px}
+    .section-title{
+      font-size:clamp(30px, 4vw, 48px);
+      margin-bottom:10px;
+    }
+    .section-copy{
+      color:var(--muted);
+      line-height:1.75;
+      margin:0 0 22px;
+      max-width:820px;
+    }
+    .info-list{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+    .info-item{
+      padding:14px 16px;
+      border-radius:16px;
+      background:var(--surface-2);
+      line-height:1.55;
+    }
+    .rsvp-wrap{
+      max-width:930px;
+      margin:0 auto;
+    }
+    form{
+      display:grid;
+      gap:14px;
+      margin-top:18px;
+    }
+    label{
+      display:grid;
+      gap:8px;
+      font-size:14px;
+      font-weight:700;
+    }
+    input, select, textarea{
+      width:100%;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px 16px;
+      font:inherit;
+      background:#fff;
+      color:var(--text);
+      outline:none;
+    }
+    textarea{min-height:120px;resize:vertical}
+    .gift-grid{
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    .gift-card{
+      padding:18px;
+      border-radius:24px;
+      background:var(--surface);
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+      min-height:280px;
+    }
+    .gift-card h3{
+      margin:0;
+      font-size:19px;
+      line-height:1.35;
+    }
+    .price{
+      font-size:28px;
+      font-weight:800;
+      color:#7a4d32;
+      letter-spacing:-.03em;
+    }
+    .chips{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .chip{
+      display:inline-flex;
+      align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      background:#f1e5d7;
+      color:#4d382b;
+      font-size:13px;
+      font-weight:800;
+    }
+    .progress{
+      margin-top:auto;
+      border-top:1px dashed var(--line);
+      padding-top:14px;
+      display:flex;
+      justify-content:space-between;
+      color:#506a55;
+      font-weight:800;
+      font-size:14px;
+    }
+    .choose-btn{width:100%;margin-top:2px}
+    .modal-backdrop{
+      position:fixed;
+      inset:0;
+      background:rgba(0,0,0,.45);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:999;
+    }
+    .modal{
+      width:min(760px,100%);
+      background:var(--surface);
+      border-radius:30px;
+      border:1px solid var(--line);
+      box-shadow:0 30px 100px rgba(0,0,0,.28);
+      overflow:hidden;
+    }
+    .modal-head{
+      display:flex;
+      gap:12px;
+      align-items:center;
+      padding:22px 22px 0;
+    }
+    .modal-title{
+      font-family:'Instrument Serif',serif;
+      font-size:32px;
+      margin:0;
+    }
+    .close-x{
+      margin-left:auto;
+      border:none;
+      background:transparent;
+      font-size:30px;
+      line-height:1;
+      cursor:pointer;
+      color:#7c6c61;
+    }
+    .modal-body{
+      padding:22px;
+      display:grid;
+      gap:14px;
+    }
+    .pay-box{
+      display:none;
+      padding:16px;
+      background:#f8f1ea;
+      border:1px solid var(--line);
+      border-radius:18px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+    .modal-actions{
+      display:flex;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .footer{
+      padding:0 0 48px;
+    }
+    .footer-box{
+      background:#2a1f18;
+      color:#f8efe5;
+      border-radius:28px;
+      padding:26px;
+    }
+    .footer-box p{
+      margin:0;
+      line-height:1.75;
+      color:rgba(248,239,229,.85);
+    }
+    code{
+      background:rgba(255,255,255,.12);
+      padding:2px 8px;
+      border-radius:8px;
+    }
+    @media (max-width: 980px){
+      .hero-grid,.split,.gift-grid{grid-template-columns:1fr}
+      .topbar{flex-direction:column}
+      .meta-row{justify-content:flex-start}
+      .hero-photo img,.photo-box img{max-height:540px}
+    }
+    @media (max-width: 680px){
+      .hero-text,.content-box{padding:22px}
+      h1{font-size:clamp(46px, 16vw, 74px)}
+      .hero-copy{font-size:16px}
+      .action-row{flex-direction:column}
+      .btn{width:100%}
     }
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="container">
-      <div class="hero-wrap">
-        <div class="hero-card">
+      <div class="hero-grid">
+        <section class="card hero-text">
           <div class="topbar">
-            <span class="eyebrow">Chá de Casa Nossa</span>
-            <div class="event-meta">
+            <span class="eyebrow">Chá de casa nossa</span>
+            <div class="meta-row">
               <span class="meta-pill">24.05.26 · Domingo</span>
-              <span class="meta-pill">16h</span>
+              <span class="meta-pill">16h às 20h</span>
               <span class="meta-pill">Green Park · Salão de festas</span>
             </div>
           </div>
-          <h1>Isabelle &amp; Wirving</h1>
-          <p class="hero-subtitle">Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista em cotas para ajudar a montar a casa nova com carinho, humor e praticidade — e deixamos tudo fácil para confirmar presença, salvar na agenda, escolher uma cota e encontrar o local.</p>
+
+          <h1>Chá de casa nossa</h1>
+          <p class="hero-copy">
+            Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista de presentes em cotas para deixar tudo mais leve, divertido e prático.
+          </p>
+
           <div class="action-row">
             <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
             <a class="btn btn-secondary" href="#presentes">Escolher uma cota</a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Venha%20celebrar%20o%20Ch%C3%A1%20de%20Casa%20Nossa%20de%20Isabelle%20e%20Wirving.%0A%0ALocal%3A%20Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas.&location=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20(Condom%C3%ADnio%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas)&ctz=America%2FSao_Paulo">Adicionar no Google Agenda</a>
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Governador%20M%C3%A1rio%20Covas%2C%20KM%2077%20-%20n%C2%BA%204224%20-%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390%20Condominio%20Green%20Park%20Salao%20de%20festas">Ver localização no Maps</a>
+
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
+               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20casa%20nossa&dates=20260524T190000Z/20260524T220000Z&details=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">
+              Gmail
+            </a>
+
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
+               href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Ch%C3%A1%20de%20casa%20nossa&startdt=2026-05-24T16:00:00&enddt=2026-05-24T20:00:00&body=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">
+              Outlook
+            </a>
+
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
+               href="webcal://calendar.google.com/calendar/ical/example.ics">
+              Apple
+            </a>
           </div>
-        </div>
-        <figure class="hero-photo">
-          <img src="./casal-hero.jpg" alt="Foto de Isabelle e Wirving" width="768" height="1024" loading="eager" />
+        </section>
+
+        <figure class="card hero-photo">
+          <img src="./casal-hero.jpg" alt="Foto do casal" loading="eager">
         </figure>
       </div>
     </div>
@@ -139,32 +383,45 @@
 
   <main>
     <section class="section">
-      <div class="container split-visual">
-        <figure class="secondary-photo">
-          <img src="./casal-secundaria.jpg" alt="Foto de Isabelle e Wirving juntos em um momento especial" width="720" height="1280" loading="lazy" />
+      <div class="container split">
+        <figure class="card photo-box">
+          <img src="./casal-secundaria.jpg" alt="Foto do casal 2" loading="lazy">
         </figure>
-        <article class="card">
+
+        <article class="card content-box">
           <h2 class="section-title">Nosso cantinho</h2>
-          <p>Estamos montando nossa casa nova com muito amor, e cada cota faz parte dessa história. Pensamos em um jeito divertido de presentear para deixar tudo mais leve, bonito e prático.</p>
-          <div class="event-list">
-            <div class="event-item"><strong>Data:</strong> domingo, 24 de maio de 2026</div>
-            <div class="event-item"><strong>Horário:</strong> 16h</div>
-            <div class="event-item"><strong>Local:</strong> Condomínio Green Park – salão de festas</div>
-            <div class="event-item"><strong>Endereço:</strong> BR-101, Rod. Governador Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390</div>
+          <p class="section-copy">
+            Estamos montando nossa casa nova com muito carinho. Cada cota ajuda a compor esse começo e deixa o presente mais leve, divertido e personalizado.
+          </p>
+          <div class="info-list">
+            <div class="info-item"><strong>Data:</strong> domingo, 24 de maio de 2026</div>
+            <div class="info-item"><strong>Horário:</strong> 16h às 20h</div>
+            <div class="info-item"><strong>Local:</strong> Green Park · Salão de festas</div>
+            <div class="info-item"><strong>Endereço:</strong> BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390</div>
           </div>
         </article>
       </div>
     </section>
 
     <section class="section" id="rsvp">
-      <div class="container" style="max-width: 980px; margin: 0 auto;">
-        <div class="card">
+      <div class="container rsvp-wrap">
+        <div class="card content-box">
           <h2 class="section-title">Confirmar presença</h2>
-          <p class="section-copy">Escolha uma cota e depois selecione o pagamento: Pix ou cartão. A pessoa clica no card da cota, o nome entra automaticamente no formulário e então escolhe como vai pagar.</p>
+          <p class="section-copy">
+            Preencha seus dados para confirmar presença no nosso chá de casa nossa.
+          </p>
+
           <form action="https://formspree.io/f/mdaydgln" method="POST">
-            <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa" />
-            <label>Nome de quem está respondendo<input type="text" name="nome_responsavel" required></label>
-            <label>Telefone ou Instagram<input type="text" name="contato"></label>
+            <input type="hidden" name="_subject" value="Novo RSVP - Chá de casa nossa">
+
+            <label>Nome completo
+              <input type="text" name="nome" required>
+            </label>
+
+            <label>Telefone ou Instagram
+              <input type="text" name="contato">
+            </label>
+
             <label>Vocês irão ao evento?
               <select name="presenca" required>
                 <option value="">Selecione</option>
@@ -173,8 +430,9 @@
                 <option>Ainda não temos certeza</option>
               </select>
             </label>
-            <label>Quantas pessoas deste convite irão?
-              <select name="quantidade_pessoas" required>
+
+            <label>Quantas pessoas irão?
+              <select name="quantidade" required>
                 <option value="">Selecione</option>
                 <option>1 pessoa</option>
                 <option>2 pessoas</option>
@@ -183,17 +441,12 @@
                 <option>5 ou mais</option>
               </select>
             </label>
-            <label>Forma de pagamento pretendida
-              <select id="forma-pagamento" name="forma_pagamento">
-                <option value="">Selecione</option>
-                <option value="pix">Pix</option>
-                <option value="cartao">Cartão</option>
-              </select>
+
+            <label>Recado para os noivos
+              <textarea name="mensagem"></textarea>
             </label>
-            <div id="pagamento-info" class="event-item" style="display:none;"></div>
-            <label>Nome da cota escolhida<input type="text" id="cota-escolhida" name="cota_escolhida" placeholder="Clique em 'Quero esta cota' em um dos cards acima" required></label>
-            <label>Mensagem<textarea name="mensagem_presente"></textarea></label>
-            <button class="btn btn-primary" type="submit">Confirmar pedido</button>
+
+            <button class="btn btn-primary" type="submit">Confirmar presença</button>
           </form>
         </div>
       </div>
@@ -201,20 +454,171 @@
 
     <section class="section" id="presentes">
       <div class="container">
-        <h2 class="section-title">Escolha uma cota</h2>
-        <p class="section-copy">Clique em um card para abrir o pop-up da cota.</p>
+        <h2 class="section-title">Lista de presentes</h2>
+        <p class="section-copy">Clique no card para selecionar a cota desejada.</p>
+
         <div class="gift-grid">
-          <article class="gift-card"><img src="./cafe.jpg" alt="Cota pra comprar café pro Wirving" class="gift-image-img"><div class="gift-content"><h3>Cota pra comprar café pro Wirving</h3><div class="price">R$ 15,00</div><div class="stock"><span>Disponível</span><span>5 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./cobertor.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão" class="gift-image-img"><div class="gift-content"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="price">R$ 20,00</div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./comida.jpg" alt="Cota pra pagar o salgado (que eu vou comer)" class="gift-image-img"><div class="gift-content"><h3>Cota pra pagar o salgado (que eu vou comer)</h3><div class="price">R$ 30,00</div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./roupas.jpg" alt="Cota pro guarda-roupa de 10 mil reais" class="gift-image-img"><div class="gift-content"><h3>Cota pro guarda-roupa de 10 mil reais</h3><div class="price">R$ 80,00</div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pro guarda-roupa de 10 mil reais">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./pix.jpg" alt="Só um pixzinho" class="gift-image-img"><div class="gift-content"><h3>Só um pixzinho</h3><div class="price">R$ 35,00</div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Só um pixzinho">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./aromatizador.jpg" alt="Kit aromatizador" class="gift-image-img"><div class="gift-content"><h3>Kit aromatizador</h3><div class="price">R$ 25,00</div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Kit aromatizador">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./mba.jpg" alt="Um mês de MBA da Isa" class="gift-image-img"><div class="gift-content"><h3>Um mês de MBA da Isa</h3><div class="price">R$ 60,00</div><div class="stock"><span>Disponível</span><span>1 restante</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Um mês de MBA da Isa">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./planta.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem" class="gift-image-img"><div class="gift-content"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="price">R$ 28,00</div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./cueca.jpg" alt="Cueca Sexy para o Wirving" class="gift-image-img"><div class="gift-content"><h3>Cueca Sexy para o Wirving</h3><div class="price">R$ 22,00</div><div class="stock"><span>Disponível</span><span>2 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./lactase.jpg" alt="Enzima de lactose pra Isa não passar vergonha" class="gift-image-img"><div class="gift-content"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="price">R$ 18,00</div><div class="stock"><span>Disponível</span><span>3 restantes</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button></div></article>
-          <article class="gift-card"><img src="./filosofia.jpg" alt="Um mês de Filosofia do Wirving" class="gift-image-img"><div class="gift-content"><h3>Um mês de Filosofia do Wirving</h3><div class="price">R$ 40,00</div><div class="stock"><span>Disponível</span><span>1 restante</span></div><button type="button" class="btn btn-primary choose-btn" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button></div></article>
+          <article class="gift-card">
+            <h3>Só um pixzinho</h3>
+            <div class="price">R$ 50,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./pix-5.jpg" alt="Só um pixzinho">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Só um pixzinho">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Só pra não dizer que não dei nada</h3>
+            <div class="price">R$ 55,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./image-scd.jpg" alt="Só pra não dizer que não dei nada">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Só pra não dizer que não dei nada">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Enviaram a lista muito tarde e é só isso que eu posso</h3>
+            <div class="price">R$ 60,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./image-terceira.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cota pra pagar o salgado (que eu vou comer)</h3>
+            <div class="price">R$ 70,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./comida-3.jpg" alt="Cota pra pagar o salgado (que eu vou comer)">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3>
+            <div class="price">R$ 80,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./planta-8.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Enzima de lactose pra Isa não passar vergonha</h3>
+            <div class="price">R$ 85,00</div>
+            <div class="chips"><span class="chip">3 cotas</span></div>
+            <img src="./lactase-10.jpg" alt="Enzima de lactose pra Isa não passar vergonha">
+            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cota pra comprar café pro Wirving</h3>
+            <div class="price">R$ 100,00</div>
+            <div class="chips"><span class="chip">5 cotas</span></div>
+            <img src="./cafe.jpg" alt="Cota pra comprar café pro Wirving">
+            <div class="progress"><span>Disponível</span><span>5 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3>
+            <div class="price">R$ 120,00</div>
+            <div class="chips"><span class="chip">4 cotas</span></div>
+            <img src="./image-quita.jpg" alt="Tchau Hospital">
+            <div class="progress"><span>Disponível</span><span>4 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Kit Tapaué (Potes herméticos)</h3>
+            <div class="price">R$ 130,00</div>
+            <div class="chips"><span class="chip">4 cotas</span></div>
+            <img src="./image-potes.jpg" alt="Kit Tapaué">
+            <div class="progress"><span>Disponível</span><span>4 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Kit Tapaué (Potes herméticos)">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3>
+            <div class="price">R$ 140,00</div>
+            <div class="chips"><span class="chip">3 cotas</span></div>
+            <img src="./aromatizador-6.jpg" alt="Kit aromatizador">
+            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cobertor pra Isa estar sempre COBERTA de razão</h3>
+            <div class="price">R$ 150,00</div>
+            <div class="chips"><span class="chip">3 cotas</span></div>
+            <img src="./cobertor-2.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão">
+            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3>
+            <div class="price">R$ 160,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./image-paraguai.jpg" alt="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Taxa pra perguntar quando teremos filhos</h3>
+            <div class="price">R$ 170,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./image-filhos.jpg" alt="Taxa pra perguntar quando teremos filhos">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cueca Sexy para o Wirving</h3>
+            <div class="price">R$ 180,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./cueca-9.jpg" alt="Cueca Sexy para o Wirving">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Um mês de Filosofia do Wirving</h3>
+            <div class="price">R$ 190,00</div>
+            <div class="chips"><span class="chip">1 cota</span></div>
+            <img src="./filosofia-11.jpg" alt="Um mês de Filosofia do Wirving">
+            <div class="progress"><span>Disponível</span><span>1 restante</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Um mês de MBA da Isa</h3>
+            <div class="price">R$ 200,00</div>
+            <div class="chips"><span class="chip">1 cota</span></div>
+            <img src="./mba-7.jpg" alt="Um mês de MBA da Isa">
+            <div class="progress"><span>Disponível</span><span>1 restante</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de MBA da Isa">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3>
+            <div class="price">R$ 200,00</div>
+            <div class="chips"><span class="chip">2 cotas</span></div>
+            <img src="./roupas-4.jpg" alt="Cota pro guarda-roupa de 10 mil reais">
+            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">Quero esta cota</button>
+          </article>
+
+          <article class="gift-card">
+            <h3>EU SOU RICAAAAAA!</h3>
+            <div class="price">R$ 300,00</div>
+            <div class="chips"><span class="chip">3 cotas</span></div>
+            <img src="./image-ricaaa.jpg" alt="EU SOU RICAAAAAA!">
+            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
+            <button class="btn btn-primary choose-btn" type="button" data-cota="EU SOU RICAAAAAA!">Quero esta cota</button>
+          </article>
         </div>
       </div>
     </section>
@@ -223,11 +627,11 @@
   <div class="modal-backdrop" id="modal-backdrop">
     <div class="modal">
       <div class="modal-head">
-        <h3 style="margin:0;font-family:'Instrument Serif',serif;font-size:32px;">Escolha sua cota</h3>
+        <h3 class="modal-title">Escolha sua cota</h3>
         <button class="close-x" id="close-modal" type="button">×</button>
       </div>
       <div class="modal-body">
-        <div id="modal-cota" style="font-weight:700;color:#714831;"></div>
+        <div id="modal-cota" style="font-weight:800;color:#6f442f"></div>
         <div class="modal-actions">
           <button type="button" class="btn btn-primary" id="modal-pix">Pix</button>
           <button type="button" class="btn btn-secondary" id="modal-cartao">Cartão</button>
@@ -242,7 +646,7 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-box">
-        <p>Resumo rápido: envie no GitHub o <code>index.html</code>, a foto principal com nome <code>casal-hero.jpg</code> e a segunda foto com nome <code>casal-secundaria.jpg</code>, tudo na mesma pasta.</p>
+        <p>Os arquivos de imagem precisam ficar na mesma pasta do <code>index.html</code>. Para os itens sem foto ainda, você pode me mandar os nomes dos arquivos depois e eu encaixo no HTML.</p>
       </div>
     </div>
   </footer>
@@ -250,9 +654,6 @@
   <script>
     const buttons = document.querySelectorAll('.choose-btn');
     const input = document.getElementById('cota-escolhida');
-    const targetSection = document.getElementById('presentes');
-    const pagamentoInfo = document.getElementById('pagamento-info');
-    const formaPagamento = document.getElementById('forma-pagamento');
     const backdrop = document.getElementById('modal-backdrop');
     const closeModal = document.getElementById('close-modal');
     const modalCota = document.getElementById('modal-cota');
@@ -261,47 +662,49 @@
     const modalPixBox = document.getElementById('modal-pix-box');
     const modalCartaoBox = document.getElementById('modal-cartao-box');
     const modalContinue = document.getElementById('modal-continue');
+    const targetSection = document.getElementById('presentes');
     let currentCota = '';
 
     function openModal(cota){
       currentCota = cota;
       modalCota.textContent = cota;
+      modalPixBox.style.display = 'none';
+      modalCartaoBox.style.display = 'none';
       backdrop.style.display = 'flex';
-      modalPixBox.style.display='none';
-      modalCartaoBox.style.display='none';
     }
-    function close(){ backdrop.style.display = 'none'; }
 
-    buttons.forEach((button) => {
-      button.addEventListener('click', () => {
-        input.value = button.dataset.cota;
-        openModal(button.dataset.cota);
+    function close(){
+      backdrop.style.display = 'none';
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentCota = btn.dataset.cota;
+        input.value = currentCota;
+        openModal(currentCota);
       });
     });
 
     closeModal.addEventListener('click', close);
-    backdrop.addEventListener('click', (e)=>{ if(e.target === backdrop) close(); });
-
-    modalPix.addEventListener('click', ()=>{
-      modalPixBox.style.display='block';
-      modalPixBox.innerHTML = '<strong>Pix</strong><p>Depois me envie a foto do QR Code e o texto do copia e cola que eu coloco aqui.</p>';
-      modalCartaoBox.style.display='none';
-      if (formaPagamento) formaPagamento.value = 'pix';
+    backdrop.addEventListener('click', (e) => {
+      if (e.target === backdrop) close();
     });
 
-    modalCartao.addEventListener('click', ()=>{
-      modalCartaoBox.style.display='block';
-      modalCartaoBox.innerHTML = '<strong>Cartão</strong><p>Depois me envie o link do cartão de crédito que eu coloco aqui.</p>';
-      modalPixBox.style.display='none';
-      if (formaPagamento) formaPagamento.value = 'cartao';
+    modalPix.addEventListener('click', () => {
+      modalPixBox.style.display = 'block';
+      modalPixBox.innerHTML = '<strong>Pix</strong><p>Insira aqui o QR Code e o copia e cola do Pix.</p>';
+      modalCartaoBox.style.display = 'none';
     });
 
-    modalContinue.addEventListener('click', ()=>{
-      pagamentoInfo.style.display = 'block';
-      pagamentoInfo.textContent = `Cota selecionada: ${currentCota}.`;
-      backdrop.style.display = 'none';
+    modalCartao.addEventListener('click', () => {
+      modalCartaoBox.style.display = 'block';
+      modalCartaoBox.innerHTML = '<strong>Cartão</strong><p>Insira aqui o link ou instruções do pagamento via cartão.</p>';
+      modalPixBox.style.display = 'none';
+    });
+
+    modalContinue.addEventListener('click', () => {
+      close();
       targetSection.scrollIntoView({ behavior: 'smooth' });
-      setTimeout(() => input.focus(), 350);
     });
   </script>
 </body>
