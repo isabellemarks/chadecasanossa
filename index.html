@@ -157,10 +157,10 @@
     </section>
 
     <section class="section" id="rsvp">
-      <div class="container grid-2">
-        <article class="card">
+      <div class="container" style="max-width: 980px; margin: 0 auto;">
+        <div class="card">
           <h2 class="section-title">Confirmar presença</h2>
-          <p class="section-copy">Depois de escolher a cota, a pessoa confirma os dados e segue com o pagamento.</p>
+          <p class="section-copy">Escolha uma cota e depois selecione o pagamento: Pix ou cartão. A pessoa clica no card da cota, o nome entra automaticamente no formulário e então escolhe como vai pagar.</p>
           <form action="https://formspree.io/f/mdaydgln" method="POST">
             <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa" />
             <label>Nome de quem está respondendo<input type="text" name="nome_responsavel" required></label>
@@ -195,7 +195,7 @@
             <label>Mensagem<textarea name="mensagem_presente"></textarea></label>
             <button class="btn btn-primary" type="submit">Confirmar pedido</button>
           </form>
-        </article>
+        </div>
       </div>
     </section>
 
