@@ -205,6 +205,13 @@
       gap:12px;
       min-height:280px;
     }
+    .gift-card img{
+      width:100%;
+      aspect-ratio: 16 / 10;
+      object-fit:cover;
+      border-radius:18px;
+      background:#efe6dc;
+    }
     .gift-card h3{
       margin:0;
       font-size:19px;
@@ -243,48 +250,42 @@
       font-size:14px;
     }
     .choose-btn{width:100%;margin-top:2px}
-    .modal-backdrop{
-      position:fixed;
-      inset:0;
-      background:rgba(0,0,0,.45);
+
+    .payment-panel{
       display:none;
-      align-items:center;
-      justify-content:center;
+      margin-top:18px;
       padding:18px;
-      z-index:999;
-    }
-    .modal{
-      width:min(760px,100%);
-      background:var(--surface);
-      border-radius:30px;
       border:1px solid var(--line);
-      box-shadow:0 30px 100px rgba(0,0,0,.28);
-      overflow:hidden;
+      border-radius:22px;
+      background:#fff;
+      box-shadow:var(--shadow);
     }
-    .modal-head{
+    .payment-panel.active{display:block}
+    .payment-head{
       display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
       gap:12px;
-      align-items:center;
-      padding:22px 22px 0;
+      margin-bottom:14px;
     }
-    .modal-title{
-      font-family:'Instrument Serif',serif;
-      font-size:32px;
+    .payment-title{
       margin:0;
+      font-family:'Instrument Serif',serif;
+      font-size:30px;
     }
     .close-x{
-      margin-left:auto;
       border:none;
       background:transparent;
       font-size:30px;
-      line-height:1;
       cursor:pointer;
       color:#7c6c61;
+      line-height:1;
     }
-    .modal-body{
-      padding:22px;
-      display:grid;
-      gap:14px;
+    .payment-actions{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:14px;
     }
     .pay-box{
       display:none;
@@ -294,11 +295,7 @@
       border-radius:18px;
       color:var(--muted);
       line-height:1.6;
-    }
-    .modal-actions{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
+      margin-bottom:12px;
     }
     .footer{
       padding:0 0 48px;
@@ -313,11 +310,6 @@
       margin:0;
       line-height:1.75;
       color:rgba(248,239,229,.85);
-    }
-    code{
-      background:rgba(255,255,255,.12);
-      padding:2px 8px;
-      border-radius:8px;
     }
     @media (max-width: 980px){
       .hero-grid,.split,.gift-grid{grid-template-columns:1fr}
@@ -340,7 +332,7 @@
       <div class="hero-grid">
         <section class="card hero-text">
           <div class="topbar">
-            <span class="eyebrow">Chá de casa nossa</span>
+            <span class="eyebrow">Isabelle e Wirving</span>
             <div class="meta-row">
               <span class="meta-pill">24.05.26 · Domingo</span>
               <span class="meta-pill">16h às 20h</span>
@@ -348,7 +340,7 @@
             </div>
           </div>
 
-          <h1>Chá de casa nossa</h1>
+          <h1>Isabelle e Wirving</h1>
           <p class="hero-copy">
             Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista de presentes em cotas para deixar tudo mais leve, divertido e prático.
           </p>
@@ -356,21 +348,8 @@
           <div class="action-row">
             <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
             <a class="btn btn-secondary" href="#presentes">Escolher uma cota</a>
-
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
-               href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20casa%20nossa&dates=20260524T190000Z/20260524T220000Z&details=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">
-              Gmail
-            </a>
-
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
-               href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Ch%C3%A1%20de%20casa%20nossa&startdt=2026-05-24T16:00:00&enddt=2026-05-24T20:00:00&body=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">
-              Outlook
-            </a>
-
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer"
-               href="webcal://calendar.google.com/calendar/ical/example.ics">
-              Apple
-            </a>
+            <a class="btn btn-secondary" href="#agenda">Adicionar na agenda</a>
+            <a class="btn btn-secondary" href="#mapa">Ver localização no Maps</a>
           </div>
         </section>
 
@@ -388,7 +367,7 @@
           <img src="./casal-secundaria.jpg" alt="Foto do casal 2" loading="lazy">
         </figure>
 
-        <article class="card content-box">
+        <article class="card content-box" id="mapa">
           <h2 class="section-title">Nosso cantinho</h2>
           <p class="section-copy">
             Estamos montando nossa casa nova com muito carinho. Cada cota ajuda a compor esse começo e deixa o presente mais leve, divertido e personalizado.
@@ -399,6 +378,9 @@
             <div class="info-item"><strong>Local:</strong> Green Park · Salão de festas</div>
             <div class="info-item"><strong>Endereço:</strong> BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390</div>
           </div>
+          <div style="margin-top:18px;">
+            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Ver localização no Maps</a>
+          </div>
         </article>
       </div>
     </section>
@@ -407,19 +389,17 @@
       <div class="container rsvp-wrap">
         <div class="card content-box">
           <h2 class="section-title">Confirmar presença</h2>
-          <p class="section-copy">
-            Preencha seus dados para confirmar presença no nosso chá de casa nossa.
-          </p>
+          <p class="section-copy">Preencha seus dados para confirmar presença no nosso chá de casa nossa.</p>
 
           <form action="https://formspree.io/f/mdaydgln" method="POST">
             <input type="hidden" name="_subject" value="Novo RSVP - Chá de casa nossa">
 
-            <label>Nome completo
+            <label>Nome de quem está respondendo
               <input type="text" name="nome" required>
             </label>
 
-            <label>Telefone ou Instagram
-              <input type="text" name="contato">
+            <label>Telefone (whatsapp)
+              <input type="text" name="telefone_whatsapp">
             </label>
 
             <label>Vocês irão ao evento?
@@ -431,7 +411,7 @@
               </select>
             </label>
 
-            <label>Quantas pessoas irão?
+            <label>Quantas pessoas deste convite irão?
               <select name="quantidade" required>
                 <option value="">Selecione</option>
                 <option>1 pessoa</option>
@@ -442,7 +422,11 @@
               </select>
             </label>
 
-            <label>Recado para os noivos
+            <label>Nome do acompanhante ou dos familiares
+              <input type="text" name="acompanhantes">
+            </label>
+
+            <label>Recado para os anfitriões
               <textarea name="mensagem"></textarea>
             </label>
 
@@ -459,252 +443,259 @@
 
         <div class="gift-grid">
           <article class="gift-card">
+            <img src="./pix-5.jpg" alt="Só um pixzinho">
             <h3>Só um pixzinho</h3>
             <div class="price">R$ 50,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./pix-5.jpg" alt="Só um pixzinho">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Só um pixzinho">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-scd.jpg" alt="Só pra não dizer que não dei nada">
             <h3>Só pra não dizer que não dei nada</h3>
             <div class="price">R$ 55,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./image-scd.jpg" alt="Só pra não dizer que não dei nada">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Só pra não dizer que não dei nada">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-terceira.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso">
             <h3>Enviaram a lista muito tarde e é só isso que eu posso</h3>
             <div class="price">R$ 60,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./image-terceira.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./comida-3.jpg" alt="Cota pra pagar o salgado (que eu vou comer)">
             <h3>Cota pra pagar o salgado (que eu vou comer)</h3>
             <div class="price">R$ 70,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./comida-3.jpg" alt="Cota pra pagar o salgado (que eu vou comer)">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./planta-8.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem">
             <h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3>
             <div class="price">R$ 80,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./planta-8.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./lactase-10.jpg" alt="Enzima de lactose pra Isa não passar vergonha">
             <h3>Enzima de lactose pra Isa não passar vergonha</h3>
             <div class="price">R$ 85,00</div>
             <div class="chips"><span class="chip">3 cotas</span></div>
-            <img src="./lactase-10.jpg" alt="Enzima de lactose pra Isa não passar vergonha">
             <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./cafe.jpg" alt="Cota pra comprar café pro Wirving">
             <h3>Cota pra comprar café pro Wirving</h3>
             <div class="price">R$ 100,00</div>
             <div class="chips"><span class="chip">5 cotas</span></div>
-            <img src="./cafe.jpg" alt="Cota pra comprar café pro Wirving">
             <div class="progress"><span>Disponível</span><span>5 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-quita.jpg" alt="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">
             <h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3>
             <div class="price">R$ 120,00</div>
             <div class="chips"><span class="chip">4 cotas</span></div>
-            <img src="./image-quita.jpg" alt="Tchau Hospital">
             <div class="progress"><span>Disponível</span><span>4 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-potes.jpg" alt="Kit Tapaué (Potes herméticos)">
             <h3>Kit Tapaué (Potes herméticos)</h3>
             <div class="price">R$ 130,00</div>
             <div class="chips"><span class="chip">4 cotas</span></div>
-            <img src="./image-potes.jpg" alt="Kit Tapaué">
             <div class="progress"><span>Disponível</span><span>4 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Kit Tapaué (Potes herméticos)">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./aromatizador-6.jpg" alt="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">
             <h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3>
             <div class="price">R$ 140,00</div>
             <div class="chips"><span class="chip">3 cotas</span></div>
-            <img src="./aromatizador-6.jpg" alt="Kit aromatizador">
             <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./cobertor-2.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão">
             <h3>Cobertor pra Isa estar sempre COBERTA de razão</h3>
             <div class="price">R$ 150,00</div>
             <div class="chips"><span class="chip">3 cotas</span></div>
-            <img src="./cobertor-2.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão">
             <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-paraguai.jpg" alt="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">
             <h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3>
             <div class="price">R$ 160,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./image-paraguai.jpg" alt="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-filhos.jpg" alt="Taxa pra perguntar quando teremos filhos">
             <h3>Taxa pra perguntar quando teremos filhos</h3>
             <div class="price">R$ 170,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./image-filhos.jpg" alt="Taxa pra perguntar quando teremos filhos">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./cueca-9.jpg" alt="Cueca Sexy para o Wirving">
             <h3>Cueca Sexy para o Wirving</h3>
             <div class="price">R$ 180,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./cueca-9.jpg" alt="Cueca Sexy para o Wirving">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./filosofia-11.jpg" alt="Um mês de Filosofia do Wirving">
             <h3>Um mês de Filosofia do Wirving</h3>
             <div class="price">R$ 190,00</div>
             <div class="chips"><span class="chip">1 cota</span></div>
-            <img src="./filosofia-11.jpg" alt="Um mês de Filosofia do Wirving">
             <div class="progress"><span>Disponível</span><span>1 restante</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./mba-7.jpg" alt="Um mês de MBA da Isa">
             <h3>Um mês de MBA da Isa</h3>
             <div class="price">R$ 200,00</div>
             <div class="chips"><span class="chip">1 cota</span></div>
-            <img src="./mba-7.jpg" alt="Um mês de MBA da Isa">
             <div class="progress"><span>Disponível</span><span>1 restante</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de MBA da Isa">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./roupas-4.jpg" alt="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">
             <h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3>
             <div class="price">R$ 200,00</div>
             <div class="chips"><span class="chip">2 cotas</span></div>
-            <img src="./roupas-4.jpg" alt="Cota pro guarda-roupa de 10 mil reais">
             <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">Quero esta cota</button>
           </article>
 
           <article class="gift-card">
+            <img src="./image-ricaaa.jpg" alt="EU SOU RICAAAAAA!">
             <h3>EU SOU RICAAAAAA!</h3>
             <div class="price">R$ 300,00</div>
             <div class="chips"><span class="chip">3 cotas</span></div>
-            <img src="./image-ricaaa.jpg" alt="EU SOU RICAAAAAA!">
             <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
             <button class="btn btn-primary choose-btn" type="button" data-cota="EU SOU RICAAAAAA!">Quero esta cota</button>
           </article>
+        </div>
+
+        <div class="payment-panel" id="payment-panel">
+          <div class="payment-head">
+            <h3 class="payment-title">Escolha como pagar</h3>
+            <button class="close-x" id="close-payment" type="button">×</button>
+          </div>
+          <div id="payment-cota" style="font-weight:800;color:#6f442f;margin-bottom:10px;"></div>
+          <div class="payment-actions">
+            <button type="button" class="btn btn-primary" id="btn-pix">Pix</button>
+            <button type="button" class="btn btn-secondary" id="btn-cartao">Cartão</button>
+          </div>
+          <div id="pix-box" class="pay-box"></div>
+          <div id="cartao-box" class="pay-box"></div>
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="button" class="btn btn-secondary" id="btn-voltar">Voltar</button>
+          </div>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="modal-backdrop" id="modal-backdrop">
-    <div class="modal">
-      <div class="modal-head">
-        <h3 class="modal-title">Escolha sua cota</h3>
-        <button class="close-x" id="close-modal" type="button">×</button>
-      </div>
-      <div class="modal-body">
-        <div id="modal-cota" style="font-weight:800;color:#6f442f"></div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-primary" id="modal-pix">Pix</button>
-          <button type="button" class="btn btn-secondary" id="modal-cartao">Cartão</button>
+  <section class="section" id="agenda">
+    <div class="container">
+      <div class="card content-box">
+        <h2 class="section-title">Adicionar na agenda</h2>
+        <p class="section-copy">Escolha a agenda que você usa para adicionar o evento.</p>
+        <div class="action-row">
+          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">Gmail</a>
+          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Isabelle%20e%20Wirving&startdt=2026-05-24T16:00:00&enddt=2026-05-24T20:00:00&body=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">Outlook</a>
+          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="webcal://calendar.google.com/calendar/ical/example.ics">Apple</a>
         </div>
-        <div id="modal-pix-box" class="pay-box"></div>
-        <div id="modal-cartao-box" class="pay-box"></div>
-        <button type="button" class="btn btn-primary" id="modal-continue">Continuar para confirmação</button>
       </div>
     </div>
-  </div>
+  </section>
 
   <footer class="footer">
     <div class="container">
       <div class="footer-box">
-        <p>Os arquivos de imagem precisam ficar na mesma pasta do <code>index.html</code>. Para os itens sem foto ainda, você pode me mandar os nomes dos arquivos depois e eu encaixo no HTML.</p>
+        <p>Seus presentes e confirmações ficam organizados aqui no convite.</p>
       </div>
     </div>
   </footer>
 
   <script>
     const buttons = document.querySelectorAll('.choose-btn');
-    const input = document.getElementById('cota-escolhida');
-    const backdrop = document.getElementById('modal-backdrop');
-    const closeModal = document.getElementById('close-modal');
-    const modalCota = document.getElementById('modal-cota');
-    const modalPix = document.getElementById('modal-pix');
-    const modalCartao = document.getElementById('modal-cartao');
-    const modalPixBox = document.getElementById('modal-pix-box');
-    const modalCartaoBox = document.getElementById('modal-cartao-box');
-    const modalContinue = document.getElementById('modal-continue');
-    const targetSection = document.getElementById('presentes');
-    let currentCota = '';
+    const panel = document.getElementById('payment-panel');
+    const closePayment = document.getElementById('close-payment');
+    const btnVoltar = document.getElementById('btn-voltar');
+    const paymentCota = document.getElementById('payment-cota');
+    const btnPix = document.getElementById('btn-pix');
+    const btnCartao = document.getElementById('btn-cartao');
+    const pixBox = document.getElementById('pix-box');
+    const cartaoBox = document.getElementById('cartao-box');
 
-    function openModal(cota){
-      currentCota = cota;
-      modalCota.textContent = cota;
-      modalPixBox.style.display = 'none';
-      modalCartaoBox.style.display = 'none';
-      backdrop.style.display = 'flex';
+    function openPanel(cota){
+      paymentCota.textContent = cota;
+      panel.classList.add('active');
+      pixBox.style.display = 'none';
+      cartaoBox.style.display = 'none';
+      pixBox.innerHTML = '';
+      cartaoBox.innerHTML = '';
+      panel.scrollIntoView({behavior:'smooth', block:'start'});
     }
 
-    function close(){
-      backdrop.style.display = 'none';
+    function closePanel(){
+      panel.classList.remove('active');
+      pixBox.style.display = 'none';
+      cartaoBox.style.display = 'none';
     }
 
     buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        currentCota = btn.dataset.cota;
-        input.value = currentCota;
-        openModal(currentCota);
-      });
+      btn.addEventListener('click', () => openPanel(btn.dataset.cota));
     });
 
-    closeModal.addEventListener('click', close);
-    backdrop.addEventListener('click', (e) => {
-      if (e.target === backdrop) close();
+    btnPix.addEventListener('click', () => {
+      pixBox.style.display = 'block';
+      pixBox.innerHTML = '<strong>Pix</strong><p>Coloque aqui o QR Code e o copia e cola do Pix.</p>';
+      cartaoBox.style.display = 'none';
     });
 
-    modalPix.addEventListener('click', () => {
-      modalPixBox.style.display = 'block';
-      modalPixBox.innerHTML = '<strong>Pix</strong><p>Insira aqui o QR Code e o copia e cola do Pix.</p>';
-      modalCartaoBox.style.display = 'none';
+    btnCartao.addEventListener('click', () => {
+      cartaoBox.style.display = 'block';
+      cartaoBox.innerHTML = '<strong>Cartão</strong><p>Coloque aqui o link da maquininha de cartão ou pagamento.</p>';
+      pixBox.style.display = 'none';
     });
 
-    modalCartao.addEventListener('click', () => {
-      modalCartaoBox.style.display = 'block';
-      modalCartaoBox.innerHTML = '<strong>Cartão</strong><p>Insira aqui o link ou instruções do pagamento via cartão.</p>';
-      modalPixBox.style.display = 'none';
-    });
-
-    modalContinue.addEventListener('click', () => {
-      close();
-      targetSection.scrollIntoView({ behavior: 'smooth' });
+    closePayment.addEventListener('click', closePanel);
+    btnVoltar.addEventListener('click', closePanel);
+    document.addEventListener('click', (e) => {
+      if (panel.classList.contains('active') && !panel.contains(e.target) && !e.target.classList.contains('choose-btn')) {
+        closePanel();
+      }
     });
   </script>
 </body>
