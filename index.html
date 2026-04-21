@@ -253,32 +253,32 @@ BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amara
       'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406200.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222PVwH1WaFrqBMdJrfT1c6663041276',
       'EU SOU RICAAAAAA!':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406300.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221LmoaMREUSTVhRyTBsaSOv63047DFC'
     };
-    const giftImageMap = {
-      'Cota pra viajar pro Paraguai e comprar o PS5 de Wirving':'./ps5.jpg',
-      'Cota pra comprar café pro Wirving':'./cafe.jpg',
-      'Cota pra pagar o salgado (que eu vou comer)':'./comida.jpg',
-      'Só um pixzinho':'./pix.jpg',
-      'Só pra não dizer que não dei nada':'./nada.jpg',
-      'Enzima de lactose pra Isa não passar vergonha':'./lactase.jpg',
-      'Cobertor pra Isa estar sempre COBERTA de razão':'./cobertor.jpg',
-      'Enviaram a lista muito tarde e é só isso que eu posso':'./tarde.jpg',
-      'Kit Tupué':'./qualy.jpg',
-      'Tchau Hospital (Pra trocar as lâmpadas do apartamento)':'./lampadas.jpg',
-      'Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)':'./aromatizador.jpg',
-      'Cota pra comprar adubo e não deixar as plantas morrerem':'./planta.jpg',
-      'Cueca Sexy para o Wirving':'./cueca.jpg',
-      'Taxa pra perguntar quando teremos filhos':'./filhos.jpg',
-      'Um mês de Filosofia do Wirving':'./filosofia.jpg',
-      'Um mês de MBA da Isa':'./mba.jpg',
-      'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'./roupas.jpg',
-      'EU SOU RICAAAAAA!':'./rica.jpg'
+    const pixImageMap = {
+      'Cota pra viajar pro Paraguai e comprar o PS5 de Wirving':'./pix160.jpg',
+      'Cota pra comprar café pro Wirving':'./pix100.jpg',
+      'Cota pra pagar o salgado (que eu vou comer)':'./pix70.jpg',
+      'Só um pixzinho':'./pix50.jpg',
+      'Só pra não dizer que não dei nada':'./pix55.jpg',
+      'Enzima de lactose pra Isa não passar vergonha':'./pix85.jpg',
+      'Cobertor pra Isa estar sempre COBERTA de razão':'./pix150.jpg',
+      'Enviaram a lista muito tarde e é só isso que eu posso':'./pix60.jpg',
+      'Kit Tupué':'./pix130.jpg',
+      'Tchau Hospital (Pra trocar as lâmpadas do apartamento)':'./pix120.jpg',
+      'Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)':'./pix140.jpg',
+      'Cota pra comprar adubo e não deixar as plantas morrerem':'./pix80.jpg',
+      'Cueca Sexy para o Wirving':'./pix180.jpg',
+      'Taxa pra perguntar quando teremos filhos':'./pix170.jpg',
+      'Um mês de Filosofia do Wirving':'./pix190.jpg',
+      'Um mês de MBA da Isa':'./pix200.jpg',
+      'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'./pix200.jpg',
+      'EU SOU RICAAAAAA!':'./pix300.jpg'
     };
     function openPanel(cota){paymentCota.textContent=cota;panel.style.display='flex';pixBox.style.display='none';cartaoBox.style.display='none';pixBox.innerHTML='';cartaoBox.innerHTML='';panel.scrollIntoView({behavior:'smooth',block:'start'})}
     function closePanel(){panel.style.display='none';pixBox.style.display='none';cartaoBox.style.display='none'}
     function openAgendaModal(){agendaModal.style.display='flex'}
     function closeAgendaModal(){agendaModal.style.display='none'}
     buttons.forEach(btn=>btn.addEventListener('click',()=>openPanel(btn.dataset.cota)));
-    btnPix.addEventListener('click',()=>{const cota=paymentCota.textContent;const code=pixCodes[cota]||'';const img=giftImageMap[cota]||'./cotapix.jpg';pixBox.style.display='block';pixBox.innerHTML=`<strong>Pix</strong><p>Copia e cola:</p><textarea readonly style="width:100%;min-height:120px">${code}</textarea><img id="pix-preview" src="${img}" alt="QR Code do Pix" style="max-width:240px;margin-top:10px;border-radius:16px;cursor:zoom-in;">`;cartaoBox.style.display='none'});
+    btnPix.addEventListener('click',()=>{const cota=paymentCota.textContent;const code=pixCodes[cota]||'';const img=pixImageMap[cota]||'./cotapix.jpg';pixBox.style.display='block';pixBox.innerHTML=`<strong>Pix</strong><p>Copia e cola:</p><textarea readonly style="width:100%;min-height:120px">${code}</textarea><img id="pix-preview" src="${img}" alt="QR Code do Pix" style="max-width:240px;margin-top:10px;border-radius:16px;cursor:zoom-in;">`;cartaoBox.style.display='none'});
     btnCartao.addEventListener('click',()=>{cartaoBox.style.display='block';cartaoBox.innerHTML='<strong>Cartão</strong><p>Tentamos colocar o link de pagamento no cartão aqui mas não foi dessa vez que o banco nos ajudou, por isso para pagamentos em cartão fale com a gente no whatsapp que iremos mandar o link. Ah, mas no cartão tem taxa da máquina, só pra deixar claro.</p>';pixBox.style.display='none'});
     document.addEventListener('click',e=>{if(e.target&&e.target.id==='pix-preview'){pixModalImg.src=e.target.src;pixModal.style.display='flex'}});
     closePayment.addEventListener('click',closePanel);btnVoltar.addEventListener('click',closePanel);openAgenda.addEventListener('click',openAgendaModal);closeAgenda.addEventListener('click',closeAgendaModal);closeAgenda2.addEventListener('click',closeAgendaModal);closePix.addEventListener('click',()=>pixModal.style.display='none');agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none'});panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();closeAgendaModal();pixModal.style.display='none'}});
