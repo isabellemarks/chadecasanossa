@@ -3,327 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Chá de casa nossa</title>
+  <title>Chá de casa nossa - Isabelle e Wirving</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#f6f1eb;
-      --surface:#fffdf9;
-      --surface-2:#f3ebe2;
-      --text:#2b2019;
-      --muted:#72665d;
-      --line:#e7d9cc;
-      --primary:#8a5b40;
-      --primary-dark:#6f442f;
-      --shadow:0 16px 50px rgba(72, 42, 22, .08);
-      --radius:28px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0;
-      font-family:'Work Sans',sans-serif;
-      color:var(--text);
-      background:
-        radial-gradient(circle at top left, rgba(211,181,157,.34), transparent 28%),
-        linear-gradient(180deg,#faf7f3 0%, #f4ece3 100%);
-    }
-    img{max-width:100%;display:block}
-    a{color:inherit}
+    :root{--bg:#f6f1eb;--surface:#fffdf9;--surface-2:#f3ebe2;--text:#2b2019;--muted:#72665d;--line:#e7d9cc;--primary:#8a5b40;--primary-dark:#6f442f;--shadow:0 16px 50px rgba(72,42,22,.08);--radius:28px}
+    *{box-sizing:border-box} html{scroll-behavior:smooth}
+    body{margin:0;font-family:'Work Sans',sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(211,181,157,.34), transparent 28%),linear-gradient(180deg,#faf7f3 0%, #f4ece3 100%)}
+    img{max-width:100%;display:block} a{color:inherit}
     .container{width:min(1160px,calc(100% - 32px));margin:0 auto}
     .section{padding:22px 0 56px}
-    .card{
-      background:rgba(255,253,249,.9);
-      border:1px solid rgba(231,217,204,.95);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      overflow:hidden;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      min-height:48px;
-      padding:13px 18px;
-      border-radius:999px;
-      font-size:15px;
-      font-weight:700;
-      text-decoration:none;
-      border:1px solid transparent;
-      cursor:pointer;
-      transition:.2s ease;
-      white-space:nowrap;
-    }
-    .btn-primary{background:var(--primary);color:#fff}
-    .btn-primary:hover{background:var(--primary-dark)}
-    .btn-secondary{background:rgba(255,255,255,.7);border-color:var(--line);color:var(--text)}
-    .btn-secondary:hover{background:#fff}
+    .card{background:rgba(255,253,249,.9);border:1px solid rgba(231,217,204,.95);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 18px;border-radius:999px;font-size:15px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.2s ease;white-space:nowrap}
+    .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}
+    .btn-secondary{background:rgba(255,255,255,.7);border-color:var(--line);color:var(--text)}.btn-secondary:hover{background:#fff}
     .hero{padding:26px 0 18px}
-    .hero-grid{
-      display:grid;
-      grid-template-columns:1.15fr .85fr;
-      gap:20px;
-      align-items:stretch;
-    }
+    .hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:20px;align-items:stretch}
     .hero-text{padding:28px}
-    .eyebrow{
-      display:inline-flex;
-      padding:8px 14px;
-      border-radius:999px;
-      background:#f1e3d6;
-      color:var(--primary-dark);
-      font-size:13px;
-      font-weight:800;
-      letter-spacing:.04em;
-      text-transform:uppercase;
-    }
-    .meta-row{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    .meta-pill{
-      padding:10px 14px;
-      border-radius:999px;
-      background:rgba(255,255,255,.78);
-      border:1px solid var(--line);
-      color:var(--muted);
-      font-size:14px;
-      font-weight:700;
-    }
-    .topbar{
-      display:flex;
-      align-items:flex-start;
-      justify-content:space-between;
-      gap:16px;
-      margin-bottom:26px;
-    }
-    h1,h2{
-      font-family:'Instrument Serif',serif;
-      margin:0;
-      line-height:.92;
-      letter-spacing:-.04em;
-    }
-    h1{
-      font-size:clamp(56px, 9vw, 108px);
-      margin-bottom:16px;
-    }
-    .hero-copy{
-      max-width:760px;
-      color:var(--muted);
-      line-height:1.8;
-      font-size:18px;
-      margin:0 0 22px;
-    }
-    .action-row{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-    }
-    .hero-photo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-      min-height:100%;
-    }
-    .split{
-      display:grid;
-      grid-template-columns:.9fr 1.1fr;
-      gap:18px;
-      align-items:stretch;
-    }
-    .photo-box{min-height:430px}
-    .photo-box img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+    .eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;background:#f1e3d6;color:var(--primary-dark);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+    .meta-row{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+    .meta-pill{padding:10px 14px;border-radius:999px;background:rgba(255,255,255,.78);border:1px solid var(--line);color:var(--muted);font-size:14px;font-weight:700}
+    .topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:26px}
+    h1,h2{font-family:'Instrument Serif',serif;margin:0;line-height:.92;letter-spacing:-.04em}
+    h1{font-size:clamp(56px, 9vw, 108px);margin-bottom:16px}
+    .hero-copy{max-width:760px;color:var(--muted);line-height:1.8;font-size:18px;margin:0 0 22px}
+    .action-row{display:flex;flex-wrap:wrap;gap:12px}
+    .hero-photo img{width:100%;height:100%;object-fit:cover;min-height:100%}
+    .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:stretch}
+    .photo-box{min-height:430px}.photo-box img{width:100%;height:100%;object-fit:cover}
     .content-box{padding:24px}
-    .section-title{
-      font-size:clamp(30px, 4vw, 48px);
-      margin-bottom:10px;
-    }
-    .section-copy{
-      color:var(--muted);
-      line-height:1.75;
-      margin:0 0 22px;
-      max-width:820px;
-    }
-    .info-list{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-    .info-item{
-      padding:14px 16px;
-      border-radius:16px;
-      background:var(--surface-2);
-      line-height:1.55;
-    }
-    .rsvp-wrap{
-      max-width:930px;
-      margin:0 auto;
-    }
-    form{
-      display:grid;
-      gap:14px;
-      margin-top:18px;
-    }
-    label{
-      display:grid;
-      gap:8px;
-      font-size:14px;
-      font-weight:700;
-    }
-    input, select, textarea{
-      width:100%;
-      border:1px solid var(--line);
-      border-radius:16px;
-      padding:14px 16px;
-      font:inherit;
-      background:#fff;
-      color:var(--text);
-      outline:none;
-    }
+    .section-title{font-size:clamp(30px,4vw,48px);margin-bottom:10px}
+    .section-copy{color:var(--muted);line-height:1.75;margin:0 0 22px;max-width:820px}
+    .info-list{display:grid;gap:12px;margin-top:18px}.info-item{padding:14px 16px;border-radius:16px;background:var(--surface-2);line-height:1.55}
+    .rsvp-wrap{max-width:930px;margin:0 auto}
+    form{display:grid;gap:14px;margin-top:18px}
+    label{display:grid;gap:8px;font-size:14px;font-weight:700}
+    input, select, textarea{width:100%;border:1px solid var(--line);border-radius:16px;padding:14px 16px;font:inherit;background:#fff;color:var(--text);outline:none}
     textarea{min-height:120px;resize:vertical}
-    .gift-grid{
-      display:grid;
-      grid-template-columns:repeat(3,minmax(0,1fr));
-      gap:18px;
-    }
-    .gift-card{
-      padding:18px;
-      border-radius:24px;
-      background:var(--surface);
-      border:1px solid var(--line);
-      box-shadow:var(--shadow);
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      min-height:280px;
-    }
-    .gift-card img{
-      width:100%;
-      aspect-ratio: 16 / 10;
-      object-fit:cover;
-      border-radius:18px;
-      background:#efe6dc;
-    }
-    .gift-card h3{
-      margin:0;
-      font-size:19px;
-      line-height:1.35;
-    }
-    .price{
-      font-size:28px;
-      font-weight:800;
-      color:#7a4d32;
-      letter-spacing:-.03em;
-    }
-    .chips{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      align-items:center;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      padding:8px 12px;
-      border-radius:999px;
-      background:#f1e5d7;
-      color:#4d382b;
-      font-size:13px;
-      font-weight:800;
-    }
-    .progress{
-      margin-top:auto;
-      border-top:1px dashed var(--line);
-      padding-top:14px;
-      display:flex;
-      justify-content:space-between;
-      color:#506a55;
-      font-weight:800;
-      font-size:14px;
-    }
+    .gift-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+    .gift-card{padding:18px;border-radius:24px;background:var(--surface);border:1px solid var(--line);box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px;min-height:280px}
+    .gift-card img{width:100%;aspect-ratio:16 / 10;object-fit:cover;border-radius:18px;background:#efe6dc}
+    .gift-card h3{margin:0;font-size:19px;line-height:1.35}.price{font-size:28px;font-weight:800;color:#7a4d32;letter-spacing:-.03em}
+    .chips{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.chip{display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;background:#f1e5d7;color:#4d382b;font-size:13px;font-weight:800}
+    .progress{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;display:flex;justify-content:space-between;color:#506a55;font-weight:800;font-size:14px}
     .choose-btn{width:100%;margin-top:2px}
-
-    .payment-panel{
-      display:none;
-      margin-top:18px;
-      padding:18px;
-      border:1px solid var(--line);
-      border-radius:22px;
-      background:#fff;
-      box-shadow:var(--shadow);
-    }
-    .payment-panel.active{display:block}
-    .payment-head{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:12px;
-      margin-bottom:14px;
-    }
-    .payment-title{
-      margin:0;
-      font-family:'Instrument Serif',serif;
-      font-size:30px;
-    }
-    .close-x{
-      border:none;
-      background:transparent;
-      font-size:30px;
-      cursor:pointer;
-      color:#7c6c61;
-      line-height:1;
-    }
-    .payment-actions{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:14px;
-    }
-    .pay-box{
-      display:none;
-      padding:16px;
-      background:#f8f1ea;
-      border:1px solid var(--line);
-      border-radius:18px;
-      color:var(--muted);
-      line-height:1.6;
-      margin-bottom:12px;
-    }
-    .footer{
-      padding:0 0 48px;
-    }
-    .footer-box{
-      background:#2a1f18;
-      color:#f8efe5;
-      border-radius:28px;
-      padding:26px;
-    }
-    .footer-box p{
-      margin:0;
-      line-height:1.75;
-      color:rgba(248,239,229,.85);
-    }
-    @media (max-width: 980px){
-      .hero-grid,.split,.gift-grid{grid-template-columns:1fr}
-      .topbar{flex-direction:column}
-      .meta-row{justify-content:flex-start}
-      .hero-photo img,.photo-box img{max-height:540px}
-    }
-    @media (max-width: 680px){
-      .hero-text,.content-box{padding:22px}
-      h1{font-size:clamp(46px, 16vw, 74px)}
-      .hero-copy{font-size:16px}
-      .action-row{flex-direction:column}
-      .btn{width:100%}
-    }
+    .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:18px;z-index:1000}
+    .modal{width:min(760px,100%);background:#fffdf9;border-radius:30px;border:1px solid #e7d9cc;box-shadow:0 30px 100px rgba(0,0,0,.28);overflow:hidden}
+    .modal-head{display:flex;gap:12px;align-items:center;padding:22px 22px 0}.modal-title{margin:0;font-family:'Instrument Serif',serif;font-size:32px}
+    .close-x{margin-left:auto;border:none;background:transparent;font-size:30px;cursor:pointer;color:#7c6c61;line-height:1}
+    .modal-body{padding:22px;display:grid;gap:14px}.payment-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .pay-box{display:none;padding:16px;background:#f8f1ea;border:1px solid var(--line);border-radius:18px;color:var(--muted);line-height:1.6}
+    .footer{padding:0 0 48px}.footer-box{background:#2a1f18;color:#f8efe5;border-radius:28px;padding:26px}.footer-box p{margin:0;line-height:1.75;color:rgba(248,239,229,.85)}
+    @media (max-width:980px){.hero-grid,.split,.gift-grid{grid-template-columns:1fr}.topbar{flex-direction:column}.meta-row{justify-content:flex-start}.hero-photo img,.photo-box img{max-height:540px}}
+    @media (max-width:680px){.hero-text,.content-box{padding:22px}h1{font-size:clamp(46px,16vw,74px)}.hero-copy{font-size:16px}.action-row{flex-direction:column}.btn{width:100%}}
   </style>
 </head>
 <body>
@@ -336,320 +69,89 @@
             <div class="meta-row">
               <span class="meta-pill">24.05.26 · Domingo</span>
               <span class="meta-pill">16h às 20h</span>
-              <span class="meta-pill">Green Park · Salão de festas</span>
+              <span class="meta-pill">Condomínimo Mirantes Green Park · Salão de festas</span>
             </div>
           </div>
-
-          <h1>Isabelle e Wirving</h1>
-          <p class="hero-copy">
-            Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista de presentes em cotas para deixar tudo mais leve, divertido e prático.
-          </p>
-
+          <h1>Chá de Casa Nossa</h1>
+          <p class="hero-copy">Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista de presentes em cotas para deixar tudo mais leve, divertido e prático.</p>
           <div class="action-row">
             <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
             <a class="btn btn-secondary" href="#presentes">Escolher uma cota</a>
-            <a class="btn btn-secondary" href="#agenda">Adicionar na agenda</a>
+            <button class="btn btn-secondary" type="button" id="open-agenda">Adicionar na agenda</button>
             <a class="btn btn-secondary" href="#mapa">Ver localização no Maps</a>
           </div>
         </section>
-
-        <figure class="card hero-photo">
-          <img src="./casal-hero.jpg" alt="Foto do casal" loading="eager">
-        </figure>
+        <figure class="card hero-photo"><img src="./casal-hero.jpg" alt="Foto do casal" loading="eager"></figure>
       </div>
     </div>
   </header>
-
   <main>
     <section class="section">
       <div class="container split">
-        <figure class="card photo-box">
-          <img src="./casal-secundaria.jpg" alt="Foto do casal 2" loading="lazy">
-        </figure>
-
+        <figure class="card photo-box"><img src="./casal-secundaria.jpg" alt="Foto do casal 2" loading="lazy"></figure>
         <article class="card content-box" id="mapa">
           <h2 class="section-title">Nosso cantinho</h2>
-          <p class="section-copy">
-            Estamos montando nossa casa nova com muito carinho. Cada cota ajuda a compor esse começo e deixa o presente mais leve, divertido e personalizado.
-          </p>
+          <p class="section-copy">Estamos montando nossa casa nova com muito carinho. Cada cota ajuda a compor esse começo e deixa o presente mais leve, divertido e personalizado.</p>
           <div class="info-list">
             <div class="info-item"><strong>Data:</strong> domingo, 24 de maio de 2026</div>
             <div class="info-item"><strong>Horário:</strong> 16h às 20h</div>
-            <div class="info-item"><strong>Local:</strong> Green Park · Salão de festas</div>
+            <div class="info-item"><strong>Local:</strong> Condomínimo Mirantes Green Park · Salão de festas</div>
             <div class="info-item"><strong>Endereço:</strong> BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390</div>
           </div>
-          <div style="margin-top:18px;">
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Ver localização no Maps</a>
-          </div>
+          <div style="margin-top:18px;text-align:center;"><a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=Condom%C3%ADnio%20Mirantes%20Green%20Park%20Sal%C3%A3o%20de%20Festas%20BR-101%20Rod.%20Gov.%20M%C3%A1rio%20Covas%20KM%2077%20Jardins%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20RN">Ver localização no Maps</a></div>
         </article>
       </div>
     </section>
-
     <section class="section" id="rsvp">
       <div class="container rsvp-wrap">
         <div class="card content-box">
           <h2 class="section-title">Confirmar presença</h2>
           <p class="section-copy">Preencha seus dados para confirmar presença no nosso chá de casa nossa.</p>
-
           <form action="https://formspree.io/f/mdaydgln" method="POST">
-            <input type="hidden" name="_subject" value="Novo RSVP - Chá de casa nossa">
-
-            <label>Nome de quem está respondendo
-              <input type="text" name="nome" required>
-            </label>
-
-            <label>Telefone (whatsapp)
-              <input type="text" name="telefone_whatsapp">
-            </label>
-
-            <label>Vocês irão ao evento?
-              <select name="presenca" required>
-                <option value="">Selecione</option>
-                <option>Sim, estaremos lá</option>
-                <option>Não poderemos ir</option>
-                <option>Ainda não temos certeza</option>
-              </select>
-            </label>
-
-            <label>Quantas pessoas deste convite irão?
-              <select name="quantidade" required>
-                <option value="">Selecione</option>
-                <option>1 pessoa</option>
-                <option>2 pessoas</option>
-                <option>3 pessoas</option>
-                <option>4 pessoas</option>
-                <option>5 ou mais</option>
-              </select>
-            </label>
-
-            <label>Nome do acompanhante ou dos familiares
-              <input type="text" name="acompanhantes">
-            </label>
-
-            <label>Recado para os anfitriões
-              <textarea name="mensagem"></textarea>
-            </label>
-
+            <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa - Isabelle e Wirving\n16h às 20h\nCondomínimo Mirantes Green Park - Salão de Festas">
+            <label>Nome de quem está respondendo<input type="text" name="nome" required></label>
+            <label>Telefone (whatsapp)<input type="text" name="telefone_whatsapp"></label>
+            <label>Vocês irão ao evento?<select name="presenca" required><option value="">Selecione</option><option>Sim, estaremos lá</option><option>Não poderemos ir</option><option>Ainda não temos certeza</option></select></label>
+            <label>Quantas pessoas deste convite irão?<select name="quantidade" required><option value="">Selecione</option><option>1 pessoa</option><option>2 pessoas</option><option>3 pessoas</option></select></label>
+            <label>Nome do acompanhante ou dos familiares<input type="text" name="acompanhantes"></label>
+            <label>Recado para os anfitriões<textarea name="mensagem"></textarea></label>
             <button class="btn btn-primary" type="submit">Confirmar presença</button>
           </form>
         </div>
       </div>
     </section>
-
     <section class="section" id="presentes">
       <div class="container">
         <h2 class="section-title">Lista de presentes</h2>
         <p class="section-copy">Clique no card para selecionar a cota desejada.</p>
-
         <div class="gift-grid">
-          <article class="gift-card">
-            <img src="./pix-5.jpg" alt="Só um pixzinho">
-            <h3>Só um pixzinho</h3>
-            <div class="price">R$ 50,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Só um pixzinho">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-scd.jpg" alt="Só pra não dizer que não dei nada">
-            <h3>Só pra não dizer que não dei nada</h3>
-            <div class="price">R$ 55,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Só pra não dizer que não dei nada">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-terceira.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso">
-            <h3>Enviaram a lista muito tarde e é só isso que eu posso</h3>
-            <div class="price">R$ 60,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./comida-3.jpg" alt="Cota pra pagar o salgado (que eu vou comer)">
-            <h3>Cota pra pagar o salgado (que eu vou comer)</h3>
-            <div class="price">R$ 70,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./planta-8.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem">
-            <h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3>
-            <div class="price">R$ 80,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./lactase-10.jpg" alt="Enzima de lactose pra Isa não passar vergonha">
-            <h3>Enzima de lactose pra Isa não passar vergonha</h3>
-            <div class="price">R$ 85,00</div>
-            <div class="chips"><span class="chip">3 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./cafe.jpg" alt="Cota pra comprar café pro Wirving">
-            <h3>Cota pra comprar café pro Wirving</h3>
-            <div class="price">R$ 100,00</div>
-            <div class="chips"><span class="chip">5 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>5 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-quita.jpg" alt="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">
-            <h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3>
-            <div class="price">R$ 120,00</div>
-            <div class="chips"><span class="chip">4 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>4 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-potes.jpg" alt="Kit Tapaué (Potes herméticos)">
-            <h3>Kit Tapaué (Potes herméticos)</h3>
-            <div class="price">R$ 130,00</div>
-            <div class="chips"><span class="chip">4 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>4 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Kit Tapaué (Potes herméticos)">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./aromatizador-6.jpg" alt="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">
-            <h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3>
-            <div class="price">R$ 140,00</div>
-            <div class="chips"><span class="chip">3 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./cobertor-2.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão">
-            <h3>Cobertor pra Isa estar sempre COBERTA de razão</h3>
-            <div class="price">R$ 150,00</div>
-            <div class="chips"><span class="chip">3 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-paraguai.jpg" alt="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">
-            <h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3>
-            <div class="price">R$ 160,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-filhos.jpg" alt="Taxa pra perguntar quando teremos filhos">
-            <h3>Taxa pra perguntar quando teremos filhos</h3>
-            <div class="price">R$ 170,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./cueca-9.jpg" alt="Cueca Sexy para o Wirving">
-            <h3>Cueca Sexy para o Wirving</h3>
-            <div class="price">R$ 180,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./filosofia-11.jpg" alt="Um mês de Filosofia do Wirving">
-            <h3>Um mês de Filosofia do Wirving</h3>
-            <div class="price">R$ 190,00</div>
-            <div class="chips"><span class="chip">1 cota</span></div>
-            <div class="progress"><span>Disponível</span><span>1 restante</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./mba-7.jpg" alt="Um mês de MBA da Isa">
-            <h3>Um mês de MBA da Isa</h3>
-            <div class="price">R$ 200,00</div>
-            <div class="chips"><span class="chip">1 cota</span></div>
-            <div class="progress"><span>Disponível</span><span>1 restante</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de MBA da Isa">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./roupas-4.jpg" alt="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">
-            <h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3>
-            <div class="price">R$ 200,00</div>
-            <div class="chips"><span class="chip">2 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>2 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">Quero esta cota</button>
-          </article>
-
-          <article class="gift-card">
-            <img src="./image-ricaaa.jpg" alt="EU SOU RICAAAAAA!">
-            <h3>EU SOU RICAAAAAA!</h3>
-            <div class="price">R$ 300,00</div>
-            <div class="chips"><span class="chip">3 cotas</span></div>
-            <div class="progress"><span>Disponível</span><span>3 restantes</span></div>
-            <button class="btn btn-primary choose-btn" type="button" data-cota="EU SOU RICAAAAAA!">Quero esta cota</button>
-          </article>
+          <article class="gift-card"><img src="./ps5.jpg" alt="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving"><h3>Cota pra viajar pro Paraguai e comprar o PS5 de Wirving</h3><div class="price">R$ 160,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra viajar pro Paraguai e comprar o PS5 de Wirving">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./cafe.jpg" alt="Cota pra comprar café pro Wirving"><h3>Cota pra comprar café pro Wirving</h3><div class="price">R$ 100,00</div><div class="chips"><span class="chip">5 cotas</span></div><div class="progress"><span>Disponível</span><span>5 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar café pro Wirving">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./comida.jpg" alt="Cota pra pagar o salgado (que eu vou comer)"><h3>Cota pra pagar o salgado (que eu vou comer)</h3><div class="price">R$ 70,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra pagar o salgado (que eu vou comer)">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./pix.jpg" alt="Só um pixzinho"><h3>Só um pixzinho</h3><div class="price">R$ 50,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Só um pixzinho">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./lactase.jpg" alt="Enzima de lactose pra Isa não passar vergonha"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="price">R$ 85,00</div><div class="chips"><span class="chip">3 cotas</span></div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./cobertor.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="price">R$ 150,00</div><div class="chips"><span class="chip">3 cotas</span></div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./tarde.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="price">R$ 60,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./qualy.jpg" alt="Kit Tupué"><h3>Kit Tupué</h3><div class="price">R$ 130,00</div><div class="chips"><span class="chip">4 cotas</span></div><div class="progress"><span>Disponível</span><span>4 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Kit Tupué">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./lampadas.jpg" alt="Tchau Hospital (Pra trocar as lâmpadas do apartamento)"><h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3><div class="price">R$ 120,00</div><div class="chips"><span class="chip">4 cotas</span></div><div class="progress"><span>Disponível</span><span>4 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./aromatizador.jpg" alt="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)"><h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3><div class="price">R$ 140,00</div><div class="chips"><span class="chip">3 cotas</span></div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./planta.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="price">R$ 80,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./cueca.jpg" alt="Cueca Sexy para o Wirving"><h3>Cueca Sexy para o Wirving</h3><div class="price">R$ 180,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./filhos.jpg" alt="Taxa pra perguntar quando teremos filhos"><h3>Taxa pra perguntar quando teremos filhos</h3><div class="price">R$ 170,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./filosofia.jpg" alt="Um mês de Filosofia do Wirving"><h3>Um mês de Filosofia do Wirving</h3><div class="price">R$ 190,00</div><div class="chips"><span class="chip">1 cota</span></div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./mba.jpg" alt="Um mês de MBA da Isa"><h3>Um mês de MBA da Isa</h3><div class="price">R$ 200,00</div><div class="chips"><span class="chip">1 cota</span></div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de MBA da Isa">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./roupas.jpg" alt="Cota pro guarda-roupa de 10 mil reais (que achamos caro)"><h3>Cota pro guarda-roupa de 10 mil reais (que achamos caro)</h3><div class="price">R$ 200,00</div><div class="chips"><span class="chip">2 cotas</span></div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cota pro guarda-roupa de 10 mil reais (que achamos caro)">Quero esta cota</button></article>
+          <article class="gift-card"><img src="./rica.jpg" alt="EU SOU RICAAAAAA!"><h3>EU SOU RICAAAAAA!</h3><div class="price">R$ 300,00</div><div class="chips"><span class="chip">3 cotas</span></div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="EU SOU RICAAAAAA!">Quero esta cota</button></article>
         </div>
-
-        <div class="payment-panel" id="payment-panel">
-          <div class="payment-head">
-            <h3 class="payment-title">Escolha como pagar</h3>
-            <button class="close-x" id="close-payment" type="button">×</button>
-          </div>
-          <div id="payment-cota" style="font-weight:800;color:#6f442f;margin-bottom:10px;"></div>
-          <div class="payment-actions">
-            <button type="button" class="btn btn-primary" id="btn-pix">Pix</button>
-            <button type="button" class="btn btn-secondary" id="btn-cartao">Cartão</button>
-          </div>
-          <div id="pix-box" class="pay-box"></div>
-          <div id="cartao-box" class="pay-box"></div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <button type="button" class="btn btn-secondary" id="btn-voltar">Voltar</button>
-          </div>
-        </div>
+        <div class="modal-backdrop" id="payment-modal"><div class="modal"><div class="modal-head"><h3 class="modal-title">Escolha como pagar</h3><button class="close-x" id="close-payment" type="button">×</button></div><div class="modal-body"><div id="payment-cota" style="font-weight:800;color:#6f442f"></div><div class="payment-actions"><button type="button" class="btn btn-primary" id="btn-pix">Pix</button><button type="button" class="btn btn-secondary" id="btn-cartao">Cartão</button></div><div id="pix-box" class="pay-box"></div><div id="cartao-box" class="pay-box"></div><button type="button" class="btn btn-secondary" id="btn-voltar">Voltar</button></div></div></div>
       </div>
     </section>
   </main>
-
-  <section class="section" id="agenda">
-    <div class="container">
-      <div class="card content-box">
-        <h2 class="section-title">Adicionar na agenda</h2>
-        <p class="section-copy">Escolha a agenda que você usa para adicionar o evento.</p>
-        <div class="action-row">
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">Gmail</a>
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Isabelle%20e%20Wirving&startdt=2026-05-24T16:00:00&enddt=2026-05-24T20:00:00&body=Ch%C3%A1%20de%20casa%20nossa%20-%2024%2F05%2F2026%20das%2016h%20%C3%A0s%2020h.&location=Green%20Park%20-%20Sal%C3%A3o%20de%20festas">Outlook</a>
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="webcal://calendar.google.com/calendar/ical/example.ics">Apple</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-box">
-        <p>Seus presentes e confirmações ficam organizados aqui no convite.</p>
-      </div>
-    </div>
-  </footer>
-
+  <div class="modal-backdrop" id="agenda-modal"><div class="modal"><div class="modal-head"><h3 class="modal-title">Adicionar na agenda</h3><button class="close-x" id="close-agenda" type="button">×</button></div><div class="modal-body"><p style="margin:0;color:#72665d;line-height:1.6;">Escolha sua agenda preferida.</p><div class="payment-actions"><a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving%0A16h%20%C3%A0s%2020h%0ACondom%C3%ADnimo%20Mirantes%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas&location=Condom%C3%ADnimo%20Mirantes%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas">Gmail</a><a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&startdt=2026-05-24T16:00:00&enddt=2026-05-24T20:00:00&body=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving%0A16h%20%C3%A0s%2020h%0ACondom%C3%ADnimo%20Mirantes%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas&location=Condom%C3%ADnimo%20Mirantes%20Green%20Park%20-%20Sal%C3%A3o%20de%20festas">Outlook</a><a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="webcal://calendar.google.com/calendar/ical/example.ics">Apple</a></div><button type="button" class="btn btn-primary" id="close-agenda-2">Fechar</button></div></div></div>
+  <footer class="footer"><div class="container"><div class="footer-box"><p>Seus presentes e confirmações ficam organizados aqui no convite.</p></div></div></footer>
   <script>
     const buttons = document.querySelectorAll('.choose-btn');
-    const panel = document.getElementById('payment-panel');
+    const panel = document.getElementById('payment-modal');
     const closePayment = document.getElementById('close-payment');
     const btnVoltar = document.getElementById('btn-voltar');
     const paymentCota = document.getElementById('payment-cota');
@@ -657,46 +159,22 @@
     const btnCartao = document.getElementById('btn-cartao');
     const pixBox = document.getElementById('pix-box');
     const cartaoBox = document.getElementById('cartao-box');
-
-    function openPanel(cota){
-      paymentCota.textContent = cota;
-      panel.classList.add('active');
-      pixBox.style.display = 'none';
-      cartaoBox.style.display = 'none';
-      pixBox.innerHTML = '';
-      cartaoBox.innerHTML = '';
-      panel.scrollIntoView({behavior:'smooth', block:'start'});
-    }
-
-    function closePanel(){
-      panel.classList.remove('active');
-      pixBox.style.display = 'none';
-      cartaoBox.style.display = 'none';
-    }
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => openPanel(btn.dataset.cota));
-    });
-
-    btnPix.addEventListener('click', () => {
-      pixBox.style.display = 'block';
-      pixBox.innerHTML = '<strong>Pix</strong><p>Coloque aqui o QR Code e o copia e cola do Pix.</p>';
-      cartaoBox.style.display = 'none';
-    });
-
-    btnCartao.addEventListener('click', () => {
-      cartaoBox.style.display = 'block';
-      cartaoBox.innerHTML = '<strong>Cartão</strong><p>Coloque aqui o link da maquininha de cartão ou pagamento.</p>';
-      pixBox.style.display = 'none';
-    });
-
-    closePayment.addEventListener('click', closePanel);
-    btnVoltar.addEventListener('click', closePanel);
-    document.addEventListener('click', (e) => {
-      if (panel.classList.contains('active') && !panel.contains(e.target) && !e.target.classList.contains('choose-btn')) {
-        closePanel();
-      }
-    });
+    const agendaModal = document.getElementById('agenda-modal');
+    const openAgenda = document.getElementById('open-agenda');
+    const closeAgenda = document.getElementById('close-agenda');
+    const closeAgenda2 = document.getElementById('close-agenda-2');
+    function openPanel(cota){paymentCota.textContent=cota;panel.style.display='flex';pixBox.style.display='none';cartaoBox.style.display='none';pixBox.innerHTML='';cartaoBox.innerHTML='';panel.scrollIntoView({behavior:'smooth',block:'start'})}
+    function closePanel(){panel.style.display='none';pixBox.style.display='none';cartaoBox.style.display='none'}
+    function openAgendaModal(){agendaModal.style.display='flex'}
+    function closeAgendaModal(){agendaModal.style.display='none'}
+    buttons.forEach(btn=>btn.addEventListener('click',()=>openPanel(btn.dataset.cota)));
+    btnPix.addEventListener('click',()=>{pixBox.style.display='block';pixBox.innerHTML='<strong>Pix</strong><p>Coloque aqui o QR Code e o copia e cola do Pix.</p>';cartaoBox.style.display='none'});
+    btnCartao.addEventListener('click',()=>{cartaoBox.style.display='block';cartaoBox.innerHTML='<strong>Cartão</strong><p>Coloque aqui o link da maquininha de cartão ou pagamento.</p>';pixBox.style.display='none'});
+    closePayment.addEventListener('click',closePanel);btnVoltar.addEventListener('click',closePanel);
+    openAgenda.addEventListener('click',openAgendaModal);closeAgenda.addEventListener('click',closeAgendaModal);closeAgenda2.addEventListener('click',closeAgendaModal);
+    agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});
+    panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();closeAgendaModal()}});
   </script>
 </body>
 </html>
