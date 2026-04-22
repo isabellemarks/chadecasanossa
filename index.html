@@ -227,19 +227,113 @@
     const dataEnvio=document.getElementById('data_envio_local');
     if(dataEnvio){dataEnvio.value=new Date().toLocaleString('pt-BR');}
 
-    const pixCodes={/* ... */};
-    const pixImageMap={/* ... */};
+    const pixCodes={
+      'Cota para Wirving ter um bode para chamar de seu':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406160.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605225Yczz2vIPmebCgqA8uHZuv63048DDF',
+      'Cota pra comprar café pro Wirving':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406100.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL62250521ZRIxpvDOS3cEzsPIam8E663040BA9',
+      'Cota pra pagar o salgado (que eu vou comer)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540570.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605224QvuiKweL3bUrWq000p8kV6304A947',
+      'Só um pixzinho':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540550.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605226Qp3F0B5E53s7NB8P4dG4t6304940A',
+      'Só pra não dizer que não dei nada':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540555.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221PDfZllQMDCfmVfq4rG6U363045FA6',
+      'Enzima de lactose pra Isa não passar vergonha':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540585.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221S2heNo1xxCLouDVIfazXc63044978',
+      'Cobertor pra Isa estar sempre COBERTA de razão':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406150.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605226UbWAAtuW5S8wgsiTLYhNe630408E0',
+      'Enviaram a lista muito tarde e é só isso que eu posso':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540560.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL6226052220XVwKB7kp3JDFkRnytOAx6304D3AC',
+      'Kit Tupué':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406130.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605223k7JzTUjNny4GSpJHPqjnt6304E710',
+      'Tchau Hospital (Pra trocar as lâmpadas do apartamento)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406120.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222RZCNSBcdkGWlDX4ZGEXND6304A6B0',
+      'Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406140.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605224Hevi1iH19iufIq3jWHsPu63042869',
+      'Cota pra comprar adubo e não deixar as plantas morrerem':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540580.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605224QQMA3w09Xfe1J6z61Edsu6304A58E',
+      'Cueca Sexy para o Wirving':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406180.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222ZtjoOHWF5El5APsQzvqQz63041564',
+      'Taxa pra perguntar quando teremos filhos':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406170.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL6226052232JSAYJSULSoddzc1y2fVD6304D5FA',
+      'Um mês de Filosofia do Wirving':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406190.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605226GFnfHRhsBmvKCRqf7I6kU6304A701',
+      'Um mês de MBA da Isa':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406200.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222PVwH1WaFrqBMdJrfT1c6663041276',
+      'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406200.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222PVwH1WaFrqBMdJrfT1c6663041276',
+      'EU SOU RICAAAAAA!':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406300.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221LmoaMREUSTVhRyTBsaSOv63047DFC'
+    };
 
-    function openPanel(cota){paymentCota.textContent=cota;panel.style.display='flex';pixBox.style.display='none';cartaoBox.style.display='none';pixBox.innerHTML='';cartaoBox.innerHTML='';panel.scrollIntoView({behavior:'smooth',block:'start'})}
-    function closePanel(){panel.style.display='none';pixBox.style.display='none';cartaoBox.style.display='none'}
-    function openAgendaModal(){agendaModal.style.display='flex'}
-    function closeAgendaModal(){agendaModal.style.display='none'}
+    const pixImageMap={
+      'Cota para Wirving ter um bode para chamar de seu':'./pix160.jpg',
+      'Cota pra comprar café pro Wirving':'./pix100.jpg',
+      'Cota pra pagar o salgado (que eu vou comer)':'./pix70.jpg',
+      'Só um pixzinho':'./pix50.jpg',
+      'Só pra não dizer que não dei nada':'./pix55.jpg',
+      'Enzima de lactose pra Isa não passar vergonha':'./pix85.jpg',
+      'Cobertor pra Isa estar sempre COBERTA de razão':'./pix150.jpg',
+      'Enviaram a lista muito tarde e é só isso que eu posso':'./pix60.jpg',
+      'Kit Tupué':'./pix130.jpg',
+      'Tchau Hospital (Pra trocar as lâmpadas do apartamento)':'./pix120.jpg',
+      'Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)':'./pix140.jpg',
+      'Cota pra comprar adubo e não deixar as plantas morrerem':'./pix80.jpg',
+      'Cueca Sexy para o Wirving':'./pix180.jpg',
+      'Taxa pra perguntar quando teremos filhos':'./pix170.jpg',
+      'Um mês de Filosofia do Wirving':'./pix190.jpg',
+      'Um mês de MBA da Isa':'./pix200.jpg',
+      'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'./pix200.jpg',
+      'EU SOU RICAAAAAA!':'./pix300.jpg'
+    };
+
+    function openPanel(cota){
+      paymentCota.textContent=cota;
+      panel.style.display='flex';
+      pixBox.style.display='none';
+      cartaoBox.style.display='none';
+      pixBox.innerHTML='';
+      cartaoBox.innerHTML='';
+    }
+
+    function closePanel(){
+      panel.style.display='none';
+      pixBox.style.display='none';
+      cartaoBox.style.display='none';
+    }
+
     buttons.forEach(btn=>btn.addEventListener('click',()=>openPanel(btn.dataset.cota)));
-    btnPix.addEventListener('click',()=>{ /* ... */ });
-    btnCartao.addEventListener('click',()=>{ /* ... */ });
-    document.addEventListener('click',async e=>{ /* ... */ });
-    document.addEventListener('click',e=>{ /* ... */ });
-    closePayment.addEventListener('click',closePanel);btnVoltar.addEventListener('click',closePanel);openAgenda.addEventListener('click',openAgendaModal);closeAgenda.addEventListener('click',closeAgendaModal);closeAgenda2.addEventListener('click',closeAgendaModal);closePix.addEventListener('click',()=>pixModal.style.display='none');agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none'});panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();closeAgendaModal();pixModal.style.display='none'}})
+
+    btnPix.addEventListener('click',()=>{
+      const cota=paymentCota.textContent;
+      const code=pixCodes[cota]||'';
+      const img=pixImageMap[cota]||'./cotapix.jpg';
+      pixBox.style.display='block';
+      pixBox.innerHTML=`<strong>Pix</strong><p>Copia e cola:</p><textarea id="pix-code" readonly style="width:100%;min-height:120px">${code}</textarea><button type="button" class="btn btn-secondary" id="copy-pix" style="margin-top:10px;width:100%">Copiar código</button><img id="pix-preview" src="${img}" alt="QR Code do Pix" style="max-width:240px;margin-top:10px;border-radius:16px;cursor:zoom-in;">`;
+      cartaoBox.style.display='none';
+    });
+
+    btnCartao.addEventListener('click',()=>{
+      cartaoBox.style.display='block';
+      cartaoBox.innerHTML='<strong>Cartão</strong><p>Para pagamento no cartão, fale com a gente no WhatsApp para receber o link de pagamento.</p>';
+      pixBox.style.display='none';
+    });
+
+    document.addEventListener('click',async e=>{
+      if(e.target&&e.target.id==='copy-pix'){
+        const t=document.getElementById('pix-code');
+        try{
+          await navigator.clipboard.writeText(t.value);
+          e.target.textContent='Copiado!';
+        }catch{
+          t.focus();
+          t.select();
+          document.execCommand('copy');
+          e.target.textContent='Copiado!';
+        }
+      }
+    });
+
+    document.addEventListener('click',e=>{
+      if(e.target&&e.target.id==='pix-preview'){
+        pixModalImg.src=e.target.src;
+        pixModal.style.display='flex';
+      }
+    });
+
+    closePayment.addEventListener('click',closePanel);
+    btnVoltar.addEventListener('click',closePanel);
+    closePix.addEventListener('click',()=>pixModal.style.display='none');
+    panel.addEventListener('click',e=>{if(e.target===panel)closePanel();});
+    pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none';});
+    document.addEventListener('keydown',e=>{
+      if(e.key==='Escape'){
+        closePanel();
+        pixModal.style.display='none';
+      }
+    });
   </script>
 </body>
 </html>
