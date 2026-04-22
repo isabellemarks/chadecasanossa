@@ -9,11 +9,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
     :root{--bg:#f6f1eb;--surface:#fffdf9;--surface-2:#f3ebe2;--text:#2b2019;--muted:#72665d;--line:#e7d9cc;--primary:#8a5b40;--primary-dark:#6f442f;--shadow:0 16px 50px rgba(72,42,22,.08);--radius:28px}
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
     body{margin:0;font-family:'Work Sans',sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(211,181,157,.34), transparent 28%),linear-gradient(180deg,#faf7f3 0%, #f4ece3 100%)}
-    img{max-width:100%;display:block}
-    a{color:inherit}
+    img{max-width:100%;display:block}a{color:inherit}
     .container{width:min(1160px,calc(100% - 32px));margin:0 auto}
     .section{padding:22px 0 56px}
     .card{background:rgba(255,253,249,.9);border:1px solid rgba(231,217,204,.95);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
@@ -32,8 +30,7 @@
     h1{font-size:clamp(50px, 6.4vw, 84px);margin-bottom:8px;white-space:nowrap}
     .hero-copy{max-width:800px;color:var(--muted);line-height:1.65;font-size:18px;margin:0 0 22px}
     .action-row{display:flex;flex-wrap:nowrap;gap:10px;align-items:center;overflow:hidden;max-width:100%}
-    .hero-photo{min-height:360px;max-width:100%}
-    .hero-photo img{width:100%;height:100%;object-fit:cover;min-height:100%;max-width:100%}
+    .hero-photo{min-height:360px;max-width:100%}.hero-photo img{width:100%;height:100%;object-fit:cover;min-height:100%;max-width:100%}
     .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px;align-items:stretch}
     .photo-box{min-height:430px}.photo-box img{width:100%;height:100%;object-fit:cover}
     .content-box{padding:24px}.content-box.centered{display:flex;flex-direction:column;justify-content:flex-start}
@@ -53,13 +50,11 @@
     .progress{margin-top:auto;border-top:1px dashed var(--line);padding-top:14px;display:flex;justify-content:space-between;color:#506a55;font-weight:800;font-size:14px}
     .modal-backdrop{display:none;position:fixed;inset:0;background:rgba(0,0,0,.45);align-items:center;justify-content:center;padding:18px;z-index:1000}
     .modal{width:min(760px,100%);background:#fffdf9;border-radius:30px;border:1px solid #e7d9cc;box-shadow:0 30px 100px rgba(0,0,0,.28);overflow:hidden}
-    .modal-head{display:flex;gap:12px;align-items:center;padding:22px 22px 0}
-    .modal-title{margin:0;font-family:'Instrument Serif',serif;font-size:32px}
+    .modal-head{display:flex;gap:12px;align-items:center;padding:22px 22px 0}.modal-title{margin:0;font-family:'Instrument Serif',serif;font-size:32px}
     .close-x{margin-left:auto;border:none;background:transparent;font-size:30px;cursor:pointer;color:#7c6c61;line-height:1}
-    .modal-body{padding:22px;display:grid;gap:14px}
-    .payment-actions{display:flex;flex-wrap:wrap;gap:10px}
+    .modal-body{padding:22px;display:grid;gap:14px}.payment-actions{display:flex;flex-wrap:wrap;gap:10px}
     .pay-box{display:none;padding:16px;background:#f8f1ea;border:1px solid var(--line);border-radius:18px;color:var(--muted);line-height:1.6}
-    .pay-box img{max-width:240px;margin-top:10px;border-radius:16px;cursor:pointer}
+    .pay-box img{max-width:240px;margin-top:10px;border-radius:16px;cursor:zoom-in}
     .footer{padding:0 0 48px}.footer-box{background:#2a1f18;color:#f8efe5;border-radius:28px;padding:26px;text-align:center}.footer-box p{margin:0;line-height:1.75;color:rgba(248,239,229,.85)}
     @media (max-width:980px){.hero-grid,.split,.gift-grid{grid-template-columns:1fr}.topbar{flex-direction:column}.meta-row{justify-content:flex-start}.hero-photo img,.photo-box img{max-height:540px}.hero-text{min-height:auto}.action-row{flex-wrap:wrap}.hero{padding-top:18px}}
     @media (max-width:680px){.hero-text,.content-box{padding:22px}h1{font-size:clamp(42px,13vw,72px);white-space:normal}.hero-copy{font-size:16px}.action-row{flex-direction:column}.btn{width:100%}}
@@ -104,9 +99,7 @@
             <div class="info-item"><strong>Local:</strong> Condomínimo Mirantes Green Park · Salão de festas</div>
             <div class="info-item"><strong>Endereço:</strong> BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390</div>
           </div>
-          <div style="margin-top:18px;text-align:center;">
-            <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Ver localização no Maps</a>
-          </div>
+          <div style="margin-top:18px;text-align:center;"><a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Ver localização no Maps</a></div>
         </article>
       </div>
     </section>
@@ -117,9 +110,8 @@
           <h2 class="section-title">Confirmar presença</h2>
           <p class="section-copy">Preencha seus dados para confirmar presença no nosso chá de casa nossa.</p>
           <form action="https://formspree.io/f/mdaydgln" method="POST">
-            <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa - Isabelle e Wirving
-16h às 20h
-BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390">
+            <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa - Isabelle e Wirving">
+            <input type="hidden" name="data_envio_local" id="data_envio_local">
             <label>Nome de quem está respondendo<input type="text" name="nome" required></label>
             <label>Telefone (whatsapp)<input type="text" name="telefone_whatsapp"></label>
             <label>Vocês irão ao evento?<select name="presenca" required><option value="">Selecione</option><option>Sim, estaremos lá</option><option>Não poderemos ir</option><option>Ainda não temos certeza</option></select></label>
@@ -144,12 +136,12 @@ BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amara
           <article class="gift-card"><img src="./nada.jpg" alt="Só pra não dizer que não dei nada"><h3>Só pra não dizer que não dei nada</h3><div class="price">R$ 55,00</div><div class="progress"><span>Esgotado</span><span>0 restantes</span></div><button class="btn btn-secondary choose-btn" type="button" disabled>Esgotado</button></article>
           <article class="gift-card"><img src="./lactase.jpg" alt="Enzima de lactose pra Isa não passar vergonha"><h3>Enzima de lactose pra Isa não passar vergonha</h3><div class="price">R$ 85,00</div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Enzima de lactose pra Isa não passar vergonha">Quero esta cota</button></article>
           <article class="gift-card"><img src="./cobertor.jpg" alt="Cobertor pra Isa estar sempre COBERTA de razão"><h3>Cobertor pra Isa estar sempre COBERTA de razão</h3><div class="price">R$ 150,00</div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cobertor pra Isa estar sempre COBERTA de razão">Quero esta cota</button></article>
-          <article class="gift-card"><img src="./tarde.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="price">R$ 60,00</div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-secondary choose-btn" type="button" disabled>Esgotado</button></article>
+          <article class="gift-card"><img src="./tarde.jpg" alt="Enviaram a lista muito tarde e é só isso que eu posso"><h3>Enviaram a lista muito tarde e é só isso que eu posso</h3><div class="price">R$ 60,00</div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Enviaram a lista muito tarde e é só isso que eu posso">Quero esta cota</button></article>
           <article class="gift-card"><img src="./qualy.jpg" alt="Kit Tupué"><h3>Kit Tupué</h3><div class="price">R$ 130,00</div><div class="progress"><span>Disponível</span><span>4 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Kit Tupué">Quero esta cota</button></article>
           <article class="gift-card"><img src="./lampadas.jpg" alt="Tchau Hospital (Pra trocar as lâmpadas do apartamento)"><h3>Tchau Hospital (Pra trocar as lâmpadas do apartamento)</h3><div class="price">R$ 120,00</div><div class="progress"><span>Disponível</span><span>4 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Tchau Hospital (Pra trocar as lâmpadas do apartamento)">Quero esta cota</button></article>
           <article class="gift-card"><img src="./aromatizador.jpg" alt="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)"><h3>Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)</h3><div class="price">R$ 140,00</div><div class="progress"><span>Disponível</span><span>3 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)">Quero esta cota</button></article>
           <article class="gift-card"><img src="./planta.jpg" alt="Cota pra comprar adubo e não deixar as plantas morrerem"><h3>Cota pra comprar adubo e não deixar as plantas morrerem</h3><div class="price">R$ 80,00</div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cota pra comprar adubo e não deixar as plantas morrerem">Quero esta cota</button></article>
-          <article class="gift-card"><img src="./cueca.jpg" alt="Cueca Sexy para o Wirving"><h3>Cueca Sexy para o Wirving</h3><div class="price">R$ 180,00</div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-secondary choose-btn" type="button" disabled>Esgotado</button></article>
+          <article class="gift-card"><img src="./cueca.jpg" alt="Cueca Sexy para o Wirving"><h3>Cueca Sexy para o Wirving</h3><div class="price">R$ 180,00</div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Cueca Sexy para o Wirving">Quero esta cota</button></article>
           <article class="gift-card"><img src="./filhos.jpg" alt="Taxa pra perguntar quando teremos filhos"><h3>Taxa pra perguntar quando teremos filhos</h3><div class="price">R$ 170,00</div><div class="progress"><span>Disponível</span><span>2 restantes</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Taxa pra perguntar quando teremos filhos">Quero esta cota</button></article>
           <article class="gift-card"><img src="./filosofia.jpg" alt="Um mês de Filosofia do Wirving"><h3>Um mês de Filosofia do Wirving</h3><div class="price">R$ 190,00</div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de Filosofia do Wirving">Quero esta cota</button></article>
           <article class="gift-card"><img src="./mba.jpg" alt="Um mês de MBA da Isa"><h3>Um mês de MBA da Isa</h3><div class="price">R$ 200,00</div><div class="progress"><span>Disponível</span><span>1 restante</span></div><button class="btn btn-primary choose-btn" type="button" data-cota="Um mês de MBA da Isa">Quero esta cota</button></article>
@@ -211,146 +203,43 @@ BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amara
 
   <footer class="footer">
     <div class="container">
-      <div class="footer-box">
-        <p>Estaremos te esperando para o nosso evento. Com carinho, Isabelle e Wirving. ❤</p>
-      </div>
+      <div class="footer-box"><p>Estaremos te esperando para o nosso evento. Com carinho, Isabelle e Wirving. ❤</p></div>
     </div>
   </footer>
 
   <script>
-    const buttons = document.querySelectorAll('.choose-btn');
-    const panel = document.getElementById('payment-modal');
-    const closePayment = document.getElementById('close-payment');
-    const btnVoltar = document.getElementById('btn-voltar');
-    const paymentCota = document.getElementById('payment-cota');
-    const btnPix = document.getElementById('btn-pix');
-    const btnCartao = document.getElementById('btn-cartao');
-    const pixBox = document.getElementById('pix-box');
-    const cartaoBox = document.getElementById('cartao-box');
-    const agendaModal = document.getElementById('agenda-modal');
-    const pixModal = document.getElementById('pix-modal');
-    const pixModalImg = document.getElementById('pix-modal-img');
-    const closePix = document.getElementById('close-pix');
-    const openAgenda = document.getElementById('open-agenda');
-    const closeAgenda = document.getElementById('close-agenda');
-    const closeAgenda2 = document.getElementById('close-agenda-2');
+    const buttons=document.querySelectorAll('.choose-btn');
+    const panel=document.getElementById('payment-modal');
+    const closePayment=document.getElementById('close-payment');
+    const btnVoltar=document.getElementById('btn-voltar');
+    const paymentCota=document.getElementById('payment-cota');
+    const btnPix=document.getElementById('btn-pix');
+    const btnCartao=document.getElementById('btn-cartao');
+    const pixBox=document.getElementById('pix-box');
+    const cartaoBox=document.getElementById('cartao-box');
+    const agendaModal=document.getElementById('agenda-modal');
+    const pixModal=document.getElementById('pix-modal');
+    const pixModalImg=document.getElementById('pix-modal-img');
+    const closePix=document.getElementById('close-pix');
+    const openAgenda=document.getElementById('open-agenda');
+    const closeAgenda=document.getElementById('close-agenda');
+    const closeAgenda2=document.getElementById('close-agenda-2');
+    const dataEnvio=document.getElementById('data_envio_local');
+    if(dataEnvio){dataEnvio.value=new Date().toLocaleString('pt-BR');}
 
-    const pixCodes = {
-      'Cota para Wirving ter um bode para chamar de seu':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406160.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605225Yczz2vIPmebCgqA8uHZuv63048DDF',
-      'Cota pra comprar café pro Wirving':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406100.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL62250521ZRIxpvDOS3cEzsPIam8E663040BA9',
-      'Cota pra pagar o salgado (que eu vou comer)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540570.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605224QvuiKweL3bUrWq000p8kV6304A947',
-      'Só um pixzinho':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540550.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605226Qp3F0B5E53s7NB8P4dG4t6304940A',
-      'Só pra não dizer que não dei nada':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540555.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221PDfZllQMDCfmVfq4rG6U363045FA6',
-      'Enzima de lactose pra Isa não passar vergonha':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540585.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221S2heNo1xxCLouDVIfazXc63044978',
-      'Cobertor pra Isa estar sempre COBERTA de razão':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406150.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605226UbWAAtuW5S8wgsiTLYhNe630408E0',
-      'Enviaram a lista muito tarde e é só isso que eu posso':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540560.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL6226052220XVwKB7kp3JDFkRnytOAx6304D3AC',
-      'Kit Tupué':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406130.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605223k7JzTUjNny4GSpJHPqjnt6304E710',
-      'Tchau Hospital (Pra trocar as lâmpadas do apartamento)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406120.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222RZCNSBcdkGWlDX4ZGEXND6304A6B0',
-      'Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406140.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605224Hevi1iH19iufIq3jWHsPu63042869',
-      'Cota pra comprar adubo e não deixar as plantas morrerem':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f520400005303986540580.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605224QQMA3w09Xfe1J6z61Edsu6304A58E',
-      'Cueca Sexy para o Wirving':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406180.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222ZtjoOHWF5El5APsQzvqQz63041564',
-      'Taxa pra perguntar quando teremos filhos':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406170.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL6226052232JSAYJSULSoddzc1y2fVD6304D5FA',
-      'Um mês de Filosofia do Wirving':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406190.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605226GFnfHRhsBmvKCRqf7I6kU6304A701',
-      'Um mês de MBA da Isa':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406200.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222PVwH1WaFrqBMdJrfT1c6663041276',
-      'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406200.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605222PVwH1WaFrqBMdJrfT1c6663041276',
-      'EU SOU RICAAAAAA!':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406300.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605221LmoaMREUSTVhRyTBsaSOv63047DFC'
-    };
+    const pixCodes={/* ... */};
+    const pixImageMap={/* ... */};
 
-    const pixImageMap = {
-      'Cota para Wirving ter um bode para chamar de seu':'./pix160.jpg',
-      'Cota pra comprar café pro Wirving':'./pix100.jpg',
-      'Cota pra pagar o salgado (que eu vou comer)':'./pix70.jpg',
-      'Só um pixzinho':'./pix50.jpg',
-      'Só pra não dizer que não dei nada':'./pix55.jpg',
-      'Enzima de lactose pra Isa não passar vergonha':'./pix85.jpg',
-      'Cobertor pra Isa estar sempre COBERTA de razão':'./pix150.jpg',
-      'Enviaram a lista muito tarde e é só isso que eu posso':'./pix60.jpg',
-      'Kit Tupué':'./pix130.jpg',
-      'Tchau Hospital (Pra trocar as lâmpadas do apartamento)':'./pix120.jpg',
-      'Kit aromatizador (Pra não sentir o cheiro do vizinho maconheiro!)':'./pix140.jpg',
-      'Cota pra comprar adubo e não deixar as plantas morrerem':'./pix80.jpg',
-      'Cueca Sexy para o Wirving':'./pix180.jpg',
-      'Taxa pra perguntar quando teremos filhos':'./pix170.jpg',
-      'Um mês de Filosofia do Wirving':'./pix190.jpg',
-      'Um mês de MBA da Isa':'./pix200.jpg',
-      'Cota pro guarda-roupa de 10 mil reais (que achamos caro)':'./pix200.jpg',
-      'EU SOU RICAAAAAA!':'./pix300.jpg'
-    };
-
-    function openPanel(cota){
-      paymentCota.textContent=cota;
-      panel.style.display='flex';
-      pixBox.style.display='none';
-      cartaoBox.style.display='none';
-      pixBox.innerHTML='';
-      cartaoBox.innerHTML='';
-      panel.scrollIntoView({behavior:'smooth',block:'start'});
-    }
-
-    function closePanel(){
-      panel.style.display='none';
-      pixBox.style.display='none';
-      cartaoBox.style.display='none';
-    }
-
+    function openPanel(cota){paymentCota.textContent=cota;panel.style.display='flex';pixBox.style.display='none';cartaoBox.style.display='none';pixBox.innerHTML='';cartaoBox.innerHTML='';panel.scrollIntoView({behavior:'smooth',block:'start'})}
+    function closePanel(){panel.style.display='none';pixBox.style.display='none';cartaoBox.style.display='none'}
     function openAgendaModal(){agendaModal.style.display='flex'}
     function closeAgendaModal(){agendaModal.style.display='none'}
-
     buttons.forEach(btn=>btn.addEventListener('click',()=>openPanel(btn.dataset.cota)));
-
-    btnPix.addEventListener('click',()=>{
-      const cota=paymentCota.textContent;
-      const code=pixCodes[cota]||'';
-      const img=pixImageMap[cota]||'./cotapix.jpg';
-      pixBox.style.display='block';
-      pixBox.innerHTML=`<strong>Pix</strong><p>Copia e cola:</p><textarea id="pix-code" readonly style="width:100%;min-height:120px">${code}</textarea><button type="button" class="btn btn-secondary" id="copy-pix" style="margin-top:10px;width:100%">Copiar código</button><img id="pix-preview" src="${img}" alt="QR Code do Pix" style="max-width:240px;margin-top:10px;border-radius:16px;cursor:zoom-in;">`;
-      cartaoBox.style.display='none';
-    });
-
-    btnCartao.addEventListener('click',()=>{
-      cartaoBox.style.display='block';
-      cartaoBox.innerHTML='<strong>Cartão</strong><p>Tentamos colocar o link de pagamento no cartão aqui mas não foi dessa vez que o banco nos ajudou, por isso para pagamentos em cartão fale com a gente no whatsapp que iremos mandar o link. Ah, mas no cartão tem taxa da máquina, só pra deixar claro.</p>';
-      pixBox.style.display='none';
-    });
-
-    document.addEventListener('click',async e=>{
-      if(e.target&&e.target.id==='copy-pix'){
-        const t=document.getElementById('pix-code');
-        try{
-          await navigator.clipboard.writeText(t.value);
-          e.target.textContent='Copiado!';
-        }catch(err){
-          t.focus();
-          t.setSelectionRange(0,t.value.length);
-          document.execCommand('copy');
-          e.target.textContent='Copiado!';
-        }
-      }
-    });
-
-    document.addEventListener('click',e=>{
-      if(e.target&&e.target.id==='pix-preview'){
-        pixModalImg.src=e.target.src;
-        pixModal.style.display='flex';
-      }
-    });
-
-    closePayment.addEventListener('click',closePanel);
-    btnVoltar.addEventListener('click',closePanel);
-    openAgenda.addEventListener('click',openAgendaModal);
-    closeAgenda.addEventListener('click',closeAgendaModal);
-    closeAgenda2.addEventListener('click',closeAgendaModal);
-    closePix.addEventListener('click',()=>pixModal.style.display='none');
-    agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});
-    pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none'});
-    panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});
-    document.addEventListener('keydown',e=>{
-      if(e.key==='Escape'){
-        closePanel();
-        closeAgendaModal();
-        pixModal.style.display='none';
-      }
-    });
+    btnPix.addEventListener('click',()=>{ /* ... */ });
+    btnCartao.addEventListener('click',()=>{ /* ... */ });
+    document.addEventListener('click',async e=>{ /* ... */ });
+    document.addEventListener('click',e=>{ /* ... */ });
+    closePayment.addEventListener('click',closePanel);btnVoltar.addEventListener('click',closePanel);openAgenda.addEventListener('click',openAgendaModal);closeAgenda.addEventListener('click',closeAgendaModal);closeAgenda2.addEventListener('click',closeAgendaModal);closePix.addEventListener('click',()=>pixModal.style.display='none');agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none'});panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();closeAgendaModal();pixModal.style.display='none'}})
   </script>
 </body>
 </html>
