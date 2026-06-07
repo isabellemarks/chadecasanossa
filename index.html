@@ -13,13 +13,13 @@
     body{margin:0;font-family:'Work Sans',sans-serif;color:var(--text);background:radial-gradient(circle at top left, rgba(211,181,157,.34), transparent 28%),linear-gradient(180deg,#faf7f3 0%, #f4ece3 100%)}
     img{max-width:100%;display:block}a{color:inherit}
     .container{width:min(1160px,calc(100% - 32px));margin:0 auto}
-    .section{padding:22px 0 56px}
+    .section{padding:14px 0 40px}
     .card{background:rgba(255,253,249,.9);border:1px solid rgba(231,217,204,.95);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
     .btn{display:inline-flex;align-items:center;justify-content:center;min-height:46px;padding:12px 16px;border-radius:999px;font-size:14px;font-weight:700;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.2s ease;white-space:nowrap}
     .btn-primary{background:var(--primary);color:#fff}.btn-primary:hover{background:var(--primary-dark)}
     .btn-secondary{background:rgba(255,255,255,.7);border-color:var(--line);color:var(--text)}.btn-secondary:hover{background:#fff}
     .choose-btn{width:100%;margin-top:2px}.choose-btn:disabled{opacity:.55;cursor:not-allowed;background:#b9a89a;color:#fff}
-    .hero{padding:26px 0 18px}
+    .hero{padding:26px 0 10px}
     .hero-grid{display:grid;grid-template-columns:1.24fr .76fr;gap:20px;align-items:stretch}
     .hero-text{padding:26px 26px 22px;min-height:360px}
     .eyebrow{display:inline-flex;padding:8px 14px;border-radius:999px;background:#f1e3d6;color:var(--primary-dark);font-size:13px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
@@ -67,64 +67,17 @@
         <section class="card hero-text">
           <div class="topbar">
             <span class="eyebrow">Isabelle e Wirving</span>
-            <div class="meta-row">
-              <span class="meta-pill">24.05.26 · Domingo</span>
-              <span class="meta-pill">16h às 20h</span>
-              <span class="meta-pill">Condomínimo Mirantes Green Park · Salão de festas</span>
-            </div>
-          </div>
+</div>
           <h1>Chá de Casa Nossa</h1>
           <p class="hero-copy">Estamos muito felizes em celebrar esse momento com vocês. Criamos nossa lista de presentes em cotas para deixar tudo mais leve, divertido e prático.</p>
-          <div class="action-row">
-            <a class="btn btn-primary" href="#rsvp">Confirmar presença</a>
-            <a class="btn btn-secondary" href="#presentes">Escolher uma cota</a>
-            <button class="btn btn-secondary" type="button" id="open-agenda">Adicionar na agenda</button>
-          </div>
-        </section>
+</section>
         <figure class="card hero-photo"><img src="./casal-hero.jpg" alt="Foto do casal" loading="eager"></figure>
       </div>
     </div>
   </header>
 
   <main>
-    <section class="section">
-      <div class="container split">
-        <figure class="card photo-box"><img src="./casal-secundaria.jpg" alt="Foto do casal 2" loading="lazy"></figure>
-        <article class="card content-box centered" id="mapa">
-          <h2 class="section-title">Nosso cantinho</h2>
-          <p class="section-copy">Estamos montando nossa casa nova com muito carinho. Cada cota ajuda a compor esse começo e deixa o presente mais leve, divertido e personalizado.</p>
-          <div class="info-list">
-            <div class="info-item"><strong>Data:</strong> domingo, 24 de maio de 2026</div>
-            <div class="info-item"><strong>Horário:</strong> 16h às 20h</div>
-            <div class="info-item"><strong>Local:</strong> Condomínimo Mirantes Green Park · Salão de festas</div>
-            <div class="info-item"><strong>Endereço:</strong> BR-101, Rod. Gov. Mário Covas, KM 77, nº 4224, Jardins, São Gonçalo do Amarante - RN, 59294-390</div>
-          </div>
-          <div style="margin-top:18px;text-align:center;"><a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://www.google.com/maps/search/?api=1&query=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Ver localização no Maps</a></div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section" id="rsvp">
-      <div class="container rsvp-wrap">
-        <div class="card content-box">
-          <h2 class="section-title">Confirmar presença</h2>
-          <p class="section-copy">Preencha seus dados para confirmar presença no nosso chá de casa nossa.</p>
-          <form action="https://formspree.io/f/mdaydgln" method="POST">
-            <input type="hidden" name="_subject" value="Novo RSVP - Chá de Casa Nossa - Isabelle e Wirving">
-            <input type="hidden" name="data_envio_local" id="data_envio_local">
-            <label>Nome de quem está respondendo<input type="text" name="nome" required></label>
-            <label>Telefone (whatsapp)<input type="text" name="telefone_whatsapp"></label>
-            <label>Vocês irão ao evento?<select name="presenca" required><option value="">Selecione</option><option>Sim, estaremos lá</option><option>Não poderemos ir</option><option>Ainda não temos certeza</option></select></label>
-            <label>Quantas pessoas deste convite irão?<select name="quantidade" required><option value="">Selecione</option><option>1 pessoa</option><option>2 pessoas</option><option>3 pessoas</option></select></label>
-            <label>Nome do acompanhante ou dos familiares<input type="text" name="acompanhantes"></label>
-            <label>Recado para os anfitriões<textarea name="mensagem"></textarea></label>
-            <button class="btn btn-primary" type="submit">Confirmar presença</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="presentes">
+<section class="section" id="presentes">
       <div class="container">
         <h2 class="section-title">Lista de presentes</h2>
         <p class="section-copy">Clique no card para selecionar a cota desejada.</p>
@@ -171,24 +124,6 @@
     </section>
   </main>
 
-  <div class="modal-backdrop" id="agenda-modal">
-    <div class="modal">
-      <div class="modal-head">
-        <h3 class="modal-title">Adicionar na agenda</h3>
-        <button class="close-x" id="close-agenda" type="button">×</button>
-      </div>
-      <div class="modal-body">
-        <p style="margin:0;color:#72665d;line-height:1.6;">Escolha sua agenda preferida.</p>
-        <div class="payment-actions">
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&dates=20260524T190000Z/20260524T220000Z&details=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving%0A16h%20%C3%A0s%2020h%0ACondom%C3%ADnimo%20Mirantes%20Green%20Park%20%C2%B7%20Sal%C3%A3o%20de%20festas&location=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Gmail</a>
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="https://outlook.live.com/calendar/0/deeplink/compose?subject=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving&startdt=2026-05-24T16:00:00&enddt=2026-05-24T20:00:00&body=Ch%C3%A1%20de%20Casa%20Nossa%20-%20Isabelle%20e%20Wirving%0A16h%20%C3%A0s%2020h%0ACondom%C3%ADnimo%20Mirantes%20Green%20Park%20%C2%B7%20Sal%C3%A3o%20de%20festas&location=BR-101%2C%20Rod.%20Gov.%20M%C3%A1rio%20Covas%2C%20KM%2077%2C%20n%C2%BA%204224%2C%20Jardins%2C%20S%C3%A3o%20Gon%C3%A7alo%20do%20Amarante%20-%20RN%2C%2059294-390">Outlook</a>
-          <a class="btn btn-secondary" target="_blank" rel="noopener noreferrer" href="webcal://example.com/event.ics">Apple</a>
-        </div>
-        <button type="button" class="btn btn-primary" id="close-agenda-2">Fechar</button>
-      </div>
-    </div>
-  </div>
-
   <div class="modal-backdrop" id="pix-modal">
     <div class="modal" style="width:min(520px,100%);">
       <div class="modal-head">
@@ -217,15 +152,9 @@
     const btnCartao=document.getElementById('btn-cartao');
     const pixBox=document.getElementById('pix-box');
     const cartaoBox=document.getElementById('cartao-box');
-    const agendaModal=document.getElementById('agenda-modal');
     const pixModal=document.getElementById('pix-modal');
     const pixModalImg=document.getElementById('pix-modal-img');
     const closePix=document.getElementById('close-pix');
-    const openAgenda=document.getElementById('open-agenda');
-    const closeAgenda=document.getElementById('close-agenda');
-    const closeAgenda2=document.getElementById('close-agenda-2');
-    const dataEnvio=document.getElementById('data_envio_local');
-    if(dataEnvio){dataEnvio.value=new Date().toLocaleString('pt-BR');}
 
     const pixCodes={
       'Cota para Wirving ter um bode para chamar de seu':'00020126580014BR.GOV.BCB.PIX013669f5661b-4c53-4ab0-b2d2-8247a5b30d1f5204000053039865406160.005802BR5925ISABELLE TEODOSIO MARQUES6005NATAL622605225Yczz2vIPmebCgqA8uHZuv63048DDF',
@@ -259,7 +188,7 @@
     btnCartao.addEventListener('click',()=>{cartaoBox.style.display='block';cartaoBox.innerHTML='<strong>Cartão</strong><p>Para pagamento no cartão, fale com a gente no WhatsApp para receber o link de pagamento.</p>';pixBox.style.display='none'})
     document.addEventListener('click',async e=>{if(e.target&&e.target.id==='copy-pix'){const t=document.getElementById('pix-code');try{await navigator.clipboard.writeText(t.value);e.target.textContent='Copiado!'}catch(err){t.focus();t.select();document.execCommand('copy');e.target.textContent='Copiado!'}}})
     document.addEventListener('click',e=>{if(e.target&&e.target.id==='pix-preview'){pixModalImg.src=e.target.src;pixModal.style.display='flex'}})
-    closePayment.addEventListener('click',closePanel);btnVoltar.addEventListener('click',closePanel);openAgenda.addEventListener('click',openAgendaModal);closeAgenda.addEventListener('click',closeAgendaModal);closeAgenda2.addEventListener('click',closeAgendaModal);closePix.addEventListener('click',()=>pixModal.style.display='none');agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none'});panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();closeAgendaModal();pixModal.style.display='none'}})
+    closePayment.addEventListener('click',closePanel);btnVoltar.addEventListener('click',closePanel);closePix.addEventListener('click',()=>pixModal.style.display='none');agendaModal.addEventListener('click',e=>{if(e.target===agendaModal)closeAgendaModal()});pixModal.addEventListener('click',e=>{if(e.target===pixModal)pixModal.style.display='none'});panel.addEventListener('click',e=>{if(e.target===panel)closePanel()});document.addEventListener('keydown',e=>{if(e.key==='Escape'){closePanel();closeAgendaModal();pixModal.style.display='none'}})
   </script>
 </body>
 </html>
